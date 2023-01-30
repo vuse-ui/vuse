@@ -1,0 +1,28 @@
+@mixin btn {
+  color: white;
+  background-color: black;
+}
+
+@mixin button-size($size) {
+  
+}
+
+.v-button-mini {
+  @include btn();
+  height: 28px;
+}
+
+.v-button-compact {
+  @include btn();
+  height: 36px;
+}
+
+.v-button-default {
+  @include btn();
+  height: 48px;
+}
+
+.v-button-large {
+  @include btn();
+  height: 56px;
+}
