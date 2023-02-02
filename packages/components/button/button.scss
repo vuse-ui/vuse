@@ -1,34 +1,40 @@
-@mixin btn {
-  color: white;
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+@include b(button) {
+  display: inline-block;
   background-color: black;
-}
+  width: auto;
+  border: 0;
 
-@mixin button-size($size) {
-  
-}
+  &-primary {
+    color: white;
+    background-color: black;
+  }
+  &-secondary {
+    background-color: rgb(238, 238, 238);
+  }
+  &-tertiary {
+    background-color: transparent;
+  }
 
-@mixin -radbuttonius($radius: 8px) {
-  border-radius: $radius;
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
-}
+  &-mini {
+    border-radius: 4px;
+    height: 28px;
+  }
+  &-compact {
+    border-radius: 8px;
+    height: 36px;
+  }
+  &-default {
+    border-radius: 8px;
+    height: 48px;
+  }
+  &-large {
+    border-radius: 8px;
+    height: 56px;
+  }
 
-.v-button-mini {
-  @include btn();
-  height: 28px;
-}
-
-.v-button-compact {
-  @include btn();
-  height: 36px;
-}
-
-.v-button-default {
-  @include btn();
-  height: 48px;
-}
-
-.v-button-large {
-  @include btn();
-  height: 56px;
+  &-pill {
+    border-radius: 10px;
+  }
 }

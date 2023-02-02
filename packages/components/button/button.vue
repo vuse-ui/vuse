@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="classList">
+  <button type="button" class="v-button" :class="classList">
     <slot>{{ props.size }}</slot>
   </button>
 </template>
@@ -12,11 +12,12 @@ import { buttonProps } from './props';
 
 const props = defineProps(buttonProps);
 const classList = computed(() => {
-  const { type, size } = props;
+  const { type, size, shape } = props;
   return [
     {
       [`v-button-${type}`]: type,
       [`v-button-${size}`]: size,
+      [`v-button-${shape}`]: shape,
     },
   ];
 });
