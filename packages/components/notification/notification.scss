@@ -1,0 +1,19 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+@include b(notification) {
+  border-radius: .75rem;
+  padding: 1rem;
+
+  &-info {
+    background-color: rgb(239, 243, 254);
+  }
+  &-positive {
+    background-color: rgb(230, 242, 237);
+  }
+  &-warning {
+    background-color: rgb(255, 250, 240);
+  }
+  &-negative {
+    background-color: rgb(255, 239, 237);
+  }
+}
