@@ -7,6 +7,12 @@
   
 }
 
+@mixin -radbuttonius($radius: 8px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
 .v-button-mini {
   @include btn();
   height: 28px;
