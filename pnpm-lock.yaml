@@ -10,6 +10,7 @@ importers:
       '@typescript-eslint/parser': ^5.49.0
       '@vitejs/plugin-vue': ^4.0.0
       '@vuse-ui/components': workspace:^1.0.0
+      '@vuse-ui/themes': workspace:^1.0.0
       '@vuse-ui/utils': workspace:^1.0.0
       eslint: ^8.33.0
       eslint-config-prettier: ^8.6.0
@@ -35,6 +36,7 @@ importers:
       vue-tsc: ^1.0.11
     dependencies:
       '@vuse-ui/components': link:packages/components
+      '@vuse-ui/themes': link:packages/themes
       '@vuse-ui/utils': link:packages/utils
       vue: 3.2.45
     devDependencies:

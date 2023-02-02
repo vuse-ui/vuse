@@ -2,18 +2,21 @@
 
 @include b(button) {
   display: inline-block;
+  color: white;
   background-color: black;
   width: auto;
   border: 0;
+  cursor: pointer;
 
   &-primary {
-    color: white;
     background-color: black;
   }
   &-secondary {
+    color: black;
     background-color: rgb(238, 238, 238);
   }
   &-tertiary {
+    color: black;
     background-color: transparent;
   }
 
@@ -37,4 +40,11 @@
   &-pill {
     border-radius: 10px;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: rgb(175, 175, 175);
+    background-color: rgb(246, 246, 246);
+  }
+
 }

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@vuse-ui/components": "workspace:^1.0.0",
+    "@vuse-ui/themes": "workspace:^1.0.0",
     "@vuse-ui/utils": "workspace:^1.0.0",
     "vue": "^3.2.45"
   },

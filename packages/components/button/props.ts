@@ -22,5 +22,18 @@ export const buttonProps = {
       return shape.includes(value);
     },
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  loading: {
+    type: Boolean,
+    default: false,
+  },
 };
+
+export const Emits = {
+  click: (evt: MouseEvent): MouseEvent => evt,
+};
+
 export type ButtonProps = ExtractPropTypes<typeof buttonProps>;
