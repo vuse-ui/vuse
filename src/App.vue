@@ -1,6 +1,6 @@
 <template>
   <div style="display: flex; flex-direction: column">
-    <div>Buttons:</div>
+    <div class="title">Buttons:</div>
     <div class="btn-demo">
       <span>Size </span>
       <v-button size="mini" type="primary">Mini</v-button>
@@ -34,6 +34,14 @@
       <span>Click </span>
       <v-button @click="greeting">Click me</v-button>
     </div>
+
+    <div class="title">Notifications:</div>
+    <div class="notification-demo">
+      <v-notification kind="info">Info notification</v-notification>
+      <v-notification kind="positive">Positive notification</v-notification>
+      <v-notification kind="warning">Warning notification</v-notification>
+      <v-notification kind="negative">Negative notification</v-notification>
+    </div>
   </div>
 </template>
 
@@ -44,8 +52,17 @@ const greeting = () => {
 </script>
 
 <style scoped>
+.title {
+  margin: 0.5rem 0;
+}
 .btn-demo * {
   margin-right: 10px;
   margin-bottom: 5px;
+}
+.notification-demo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 </style>
