@@ -42,6 +42,15 @@
       <v-notification kind="warning">Warning notification</v-notification>
       <v-notification kind="negative">Negative notification</v-notification>
     </div>
+
+    <div class="title">Icons:</div>
+    <div>
+      <v-icon name="alert" title="Alert" size="16" color="red" />
+      <v-icon name="alert" title="Alert" size="32" color="green" />
+      <v-icon name="alert" title="Alert" size="48" color="black" />
+      <v-icon name="alert" title="Alert" size="64" color="blue" />
+      <v-icon name="arrow-down" title="Arrow down" />
+    </div>
   </div>
 </template>
 

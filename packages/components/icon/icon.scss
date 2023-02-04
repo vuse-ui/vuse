@@ -1,0 +1,9 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+@include b(icon) {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+  overflow: hidden;
+  
+}
