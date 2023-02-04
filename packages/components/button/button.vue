@@ -7,7 +7,6 @@
     :loading="loading"
     @click="handlerClick"
   >
-    <!-- TODO: Icon组件完成后，把loading完成 -->
     <slot></slot>
   </button>
 </template>
@@ -26,7 +25,7 @@ const classList = computed(() => {
     {
       [`v-button-${type}`]: type,
       [`v-button-${size}`]: size,
-      [`v-button-${shape}`]: shape,
+      [`v-button-${size}-${shape}`]: shape,
     },
   ];
 });

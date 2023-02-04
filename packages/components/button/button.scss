@@ -1,10 +1,16 @@
 @use '@vuse-ui/themes/src/mixins/mixins' as *;
 
+$sizes: (
+  mini: 28px,
+  compact: 36px,
+  default: 48px,
+  large: 56px
+);
+
 @include b(button) {
   display: inline-block;
   color: white;
   background-color: black;
-  width: auto;
   border: 0;
   cursor: pointer;
 
@@ -20,27 +26,37 @@
     background-color: transparent;
   }
 
-  &-mini {
-    border-radius: 4px;
-    height: 28px;
-  }
-  &-compact {
-    border-radius: 8px;
-    height: 36px;
-  }
-  &-default {
-    border-radius: 8px;
-    height: 48px;
-  }
-  &-large {
-    border-radius: 8px;
-    height: 56px;
+  @each $size in map-keys($sizes) {
+    $height: map-get($sizes, $size);
+
+    &-#{$size} {
+      height: $height;
+      border-radius: 8px;
+      @if $size == mini {
+        border-radius: 4px;
+      }
+    }
+
+    // TODO: 好像很丑陋，但是实现了，回头要更优雅地实现
+    &-#{$size}-pill {
+      border-radius: $height * 0.5;
+    }
+    &-#{$size}-round {
+      border-radius: 50%;
+    }
+    &-#{$size}-circle {
+      max-width: $height;
+      border-radius: $height * 0.5;
+    }
+    &-#{$size}-square {
+      min-width: $height;
+      max-width: $height;
+    }
   }
 
-  &-pill {
-    border-radius: 10px;
+  &:hover {
+    background-color: rgb(51, 51, 51);
   }
-
   &:disabled {
     cursor: not-allowed;
     color: rgb(175, 175, 175);

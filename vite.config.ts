@@ -11,6 +11,7 @@ export default defineConfig({
     vue(),
     vueSetupExtend(),
     viteEslint(),
+    // https://github.com/vbenjs/vite-plugin-svg-icons
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'packages/components/icon/svg')],
       symbolId: '[name]',

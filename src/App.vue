@@ -17,10 +17,10 @@
     <div class="btn-demo">
       <span>Shape </span>
       <v-button shape="default">Default</v-button>
-      <v-button shape="default">Pill</v-button>
-      <v-button shape="default">Round</v-button>
-      <v-button shape="default">Circle</v-button>
-      <v-button shape="default">Square</v-button>
+      <v-button shape="pill">Pill</v-button>
+      <v-button shape="round">Round</v-button>
+      <v-button shape="circle">Circle</v-button>
+      <v-button shape="square">Square</v-button>
     </div>
     <div class="btn-demo">
       <span>Disabled </span>

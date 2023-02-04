@@ -21,6 +21,7 @@ export const buttonProps = {
     validator(value: string) {
       return shape.includes(value);
     },
+    default: 'default',
   },
   disabled: {
     type: Boolean,
