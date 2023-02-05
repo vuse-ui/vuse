@@ -1,5 +1,5 @@
 {
-  "*.{js,jsx,ts,tsx}": [
+  "packages/components/**/*.{js,jsx,ts,tsx}": [
     "eslint --fix", 
     "prettier --write"
   ],
@@ -13,7 +13,7 @@
     "prettier --write", 
     "eslint --fix"
   ],
-  "packages/theme-chalk/src/**/*.{scss,css}": [
+  "packages/themes/src/**/*.{scss,css}": [
     "stylelint --fix --custom-syntax postcss-scss", 
     "prettier --write"
   ],

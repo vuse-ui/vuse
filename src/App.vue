@@ -59,7 +59,6 @@ const greeting = () => {
   alert('Clicked!');
 };
 </script>
-
 <style scoped>
 .title {
   margin: 0.5rem 0;
