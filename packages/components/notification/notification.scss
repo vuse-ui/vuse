@@ -1,8 +1,11 @@
 @use '@vuse-ui/themes/src/mixins/mixins' as *;
 
 @include b(notification) {
-  border-radius: .75rem;
+  border-radius: 0.75rem;
   padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  opacity: 1;
 
   &-info {
     background-color: rgb(239, 243, 254);

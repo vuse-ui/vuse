@@ -15,4 +15,8 @@ export const Props = {
   },
 };
 
+export const Emits = {
+  close: (evt: MouseEvent): MouseEvent => evt,
+};
+
 export type NotificationProps = ExtractPropTypes<typeof Props>;
