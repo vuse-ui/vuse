@@ -8,6 +8,7 @@ export const Props = {
     validator(value: string) {
       return kind.includes(value);
     },
+    default: 'info',
   },
   closeable: {
     type: Boolean,

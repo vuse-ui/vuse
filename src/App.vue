@@ -37,10 +37,13 @@
 
     <div class="title">Notifications:</div>
     <div class="notification-demo">
+      <span>Kind </span>
       <v-notification kind="info">Info notification</v-notification>
       <v-notification kind="positive">Positive notification</v-notification>
       <v-notification kind="warning">Warning notification</v-notification>
       <v-notification kind="negative">Negative notification</v-notification>
+      <span>Closeable </span>
+      <v-notification closeable>Closeable notification</v-notification>
     </div>
 
     <div class="title">Icons:</div>

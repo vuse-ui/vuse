@@ -2,7 +2,7 @@
   <Transition>
     <div v-if="visible" class="v-notification" :class="classList">
       <slot />
-      <svg viewBox="0 0 24 24" width="1rem" height="1rem" cursor="pointer" @click="handleClose">
+      <svg v-if="closeable" viewBox="0 0 24 24" width="1rem" height="1rem" cursor="pointer" @click="handleClose">
         <path
           fill-rule="evenodd"
           clip-rule="evenodd"
