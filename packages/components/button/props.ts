@@ -8,6 +8,7 @@ export const buttonProps = {
     validator(value: string) {
       return type.includes(value);
     },
+    default: 'primary',
   },
   size: {
     type: String,
