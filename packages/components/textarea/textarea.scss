@@ -1,0 +1,72 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+$sizes: (
+  mini: 12px,
+  compact: 14px,
+  default: 16px,
+  large: 18px
+);
+
+$line-height: (
+  mini: 20px,
+  compact: 20px,
+  default: 24px,
+  large: 28px
+);
+
+$padding-y: (
+  mini: 4px,
+  compact: 6px,
+  default: 10px,
+  large: 14px
+);
+
+@include b(textarea) {
+  background-color: rgb(238, 238, 238);
+  border-width: 2px;
+  border-color: transparent;
+  border-radius: 8px;
+  border-style: solid;
+  cursor: text;
+
+  &-focus {
+    border-color: black;
+    border-width: 2px;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+  }
+
+  & > textarea {
+    resize: none;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    cursor: inherit;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // 也许还要加入:valid和:invalid
+  &-positive {
+    background-color: rgb(230, 242, 237);
+    border-color: rgb(102, 209, 158);
+  }
+  &-error {
+    background-color: rgb(255, 239, 237);
+    border-color: rgb(241, 153, 142);
+  }
+
+  @each $size in map-keys($sizes) {
+    &-#{$size} > textarea {
+      font-size: map-get($sizes, $size);
+      line-height: map-get($line-height, $size);
+      padding: #{map-get($padding-y, $size)} 14px;
+    }
+  }
+}
