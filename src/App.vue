@@ -54,13 +54,42 @@
       <v-icon name="alert" title="Alert" size="64" color="blue" />
       <v-icon name="arrow-down" title="Arrow down" />
     </div>
+
+    <div class="title">Textarea:</div>
+    <div class="notification-demo">
+      <span>Size </span>
+      <v-textarea size="mini" v-model="inputs.mini" />
+      <v-textarea size="compact" v-model="inputs.compact" />
+      <v-textarea size="default" v-model="inputs.default" />
+      <v-textarea size="large" v-model="inputs.large" />
+      <span>Error </span>
+      <v-textarea error placeholder="Controlled Input" v-model="inputs.error" />
+      <span>Positive </span>
+      <v-textarea positive placeholder="Controlled Input" v-model="inputs.positive" />
+      <span>Disabled </span>
+      <v-textarea disabled placeholder="Controlled Input" v-model="inputs.disabled" />
+      <span>Readonly </span>
+      <v-textarea readonly placeholder="Controlled Input" v-model="inputs.readonly" />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
 const greeting = () => {
   alert('Clicked!');
 };
+const inputs = ref({
+  error: 'Error Textarea',
+  positive: 'Positive Textarea',
+  disabled: 'Disabled Textarea',
+  readonly: 'Readonly Textarea',
+  mini: 'Mini',
+  compact: 'Compact',
+  default: 'Default',
+  large: 'Large',
+});
 </script>
 <style scoped>
 .title {
