@@ -71,6 +71,17 @@
       <span>Readonly </span>
       <v-textarea readonly placeholder="Controlled Input" v-model="inputs.readonly" />
     </div>
+
+    <div class="title">Avatar:</div>
+    <div class="notification-demo">
+      <span>Pic </span>
+      <v-avatar src="https://avatars.dicebear.com/api/human/yard.svg?width=285&mood=happy" />
+      <span>Text </span>
+      <v-avatar name="Eobard Thawne" />
+      <span>Size </span>
+      <v-avatar src="https://avatars.dicebear.com/api/human/yard.svg?width=285&mood=happy" size="16px" />
+      <v-avatar name="Eobard Thawne" size="32px" />
+    </div>
   </div>
 </template>
 

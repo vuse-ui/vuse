@@ -1,0 +1,26 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+@include b(avatar) {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  background-color: black;
+
+  &-loaded {
+    background-color: transparent;
+  }
+
+  > img {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  }
+
+  > span {
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
