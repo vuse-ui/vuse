@@ -1,7 +1,7 @@
-$namespace: "v";
+$namespace: 'v';
 
 @mixin b($block) {
-  $c: $namespace + "-" + $block !global;
+  $c: $namespace + '-' + $block !global;
 
   .#{$c} {
     @content;

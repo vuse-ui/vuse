@@ -1,0 +1,72 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+$sizes: (
+  mini: 28px,
+  compact: 32px,
+  default: 44px,
+  large: 56px,
+);
+
+$padding-y: (
+  mini: 4px,
+  compact: 6px,
+  default: 10px,
+  large: 14px,
+);
+
+$font-size: (
+  mini: 12px,
+  compact: 14px,
+  default: 16px,
+  large: 18px,
+);
+
+@include b(input) {
+  display: flex;
+  border: solid #eeeeee 2px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background: #eeeeee;
+  align-items: center;
+  &-icon {
+    cursor: pointer;
+  }
+  &:has(.v-input-icon) {
+    padding-right: 14px;
+  }
+  & > input {
+    background: transparent;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: inherit;
+  }
+  &:has(:focus) {
+    border-color: rgb(7, 7, 7);
+    background: #eeeeee;
+  }
+  &-disabled {
+    cursor: not-allowed;
+  }
+  &-positive {
+    background-color: rgb(230, 242, 237);
+    border-color: rgb(102, 209, 158);
+  }
+  &-error {
+    background-color: rgb(255, 239, 237);
+    border-color: rgb(241, 153, 142);
+  }
+  @each $size in map-keys($sizes) {
+    $height: map-get($sizes, $size);
+    &-#{$size} > input {
+      @if $size == mini {
+        border-radius: 4px;
+      }
+      height: $height;
+      padding: #{map-get($padding-y, $size)} 14px;
+      font-size: #{map-get($font-size, $size)};
+    }
+  }
+}
