@@ -72,6 +72,39 @@
       <v-textarea readonly placeholder="Controlled Input" v-model="inputs.readonly" />
     </div>
 
+    <div class="title">Input:</div>
+    <div class="notification-demo">
+      <v-input :size="inputSize" v-model="inputs[inputSize]" v-bind="inputStatus" />
+      <label for="pet-select">Choose size:</label>
+      <select name="size" id="size" v-model="inputSize">
+        <option v-for="size of sizes" :value="size" :key="size">{{ size }}</option>
+      </select>
+      <fieldset>
+        <legend>Choose input's features:</legend>
+        <div>
+          <input type="checkbox" id="Disabled" name="Disabled" value="disabled" v-model="inputStatus.disabled" />
+          <label for="Disabled">Disabled</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="Error" name="Error" value="error" v-model="inputStatus.error" />
+          <label for="Error">Error</label>
+        </div>
+        <div>
+          <input type="checkbox" id="Positive" name="Positive" value="positive" v-model="inputStatus.positive" />
+          <label for="Positive">Positive</label>
+        </div>
+        <div>
+          <input type="checkbox" id="Readonly" name="Readonly" value="readonly" v-model="inputStatus.readonly" />
+          <label for="Readonly">Readonly</label>
+        </div>
+        <div>
+          <input type="checkbox" id="Clearable" name="Clearable" value="clearable" v-model="inputStatus.clearable" />
+          <label for="Clearable">Clearable</label>
+        </div>
+      </fieldset>
+    </div>
+
     <div class="title">Avatar:</div>
     <div class="notification-demo">
       <span>Pic </span>
@@ -91,15 +124,25 @@ import { ref } from 'vue';
 const greeting = () => {
   alert('Clicked!');
 };
-const inputs = ref({
+const inputs = ref<{ [n: string]: string }>({
   error: 'Error Textarea',
   positive: 'Positive Textarea',
   disabled: 'Disabled Textarea',
   readonly: 'Readonly Textarea',
+  clearable: 'Clearable Input',
   mini: 'Mini',
   compact: 'Compact',
   default: 'Default',
   large: 'Large',
+});
+const inputSize = ref('default');
+const sizes = ['mini', 'compact', 'default', 'large'];
+const inputStatus = ref({
+  error: false,
+  positive: false,
+  disabled: false,
+  readonly: false,
+  clearable: false,
 });
 </script>
 <style scoped>
