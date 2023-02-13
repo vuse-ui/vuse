@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: 'Vuse-UI',
   description: 'A modern Vue3 component library',
+  base: '/vuse/',
   themeConfig: {
     sidebar: [
       {
