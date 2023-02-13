@@ -7,6 +7,20 @@ $sizes: (
   large: 56px,
 );
 
+$font-sizes: (
+  mini: 12px,
+  compact: 14px,
+  default: 16px,
+  large: 18px,
+);
+
+$paddings: (
+  mini: 6px,
+  compact: 10px,
+  default: 14px,
+  large: 16px,
+);
+
 @include b(button) {
   display: inline-block;
   color: white;
@@ -43,7 +57,9 @@ $sizes: (
 
     &-#{$size} {
       height: $height;
+      font-size: map-get($font-sizes, $size);
       border-radius: 8px;
+      padding: map-get($paddings, $size);
       @if $size == mini {
         border-radius: 4px;
       }
