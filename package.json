@@ -10,9 +10,6 @@
     "lint:fix": "eslint . --fix --ext .js,.ts,jsx,tsx,.vue",
     "lint:eslint": "eslint .",
     "lint:style": "stylelint packages/themes/src/**/*.scss --fix --custom-syntax postcss-scss",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
     "prepare": "husky install",
     "lint:staged": "lint-staged"
   },
@@ -51,16 +48,7 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
-    "vitepress": "1.0.0-alpha.40",
     "vitest": "^0.28.4",
     "vue-tsc": "^1.0.11"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@algolia/client-search"
-      ]
-    },
-    "_comment": "https://github.com/vuejs/vitepress/issues/472"
   }
 }
