@@ -8,5 +8,16 @@ import Icon from '@vuse-ui/components/icon';
 import Textarea from '@vuse-ui/components/textarea';
 import Input from '@vuse-ui/components/input';
 import Avatar from '@vuse-ui/components/avatar';
+import Link from '@vuse-ui/components/link';
+import Breadcrumbs from '@vuse-ui/components/breadcrumbs';
 
-createApp(App).use(Button).use(Notification).use(Icon).use(Textarea).use(Avatar).use(Input).mount('#app');
+createApp(App)
+  .use(Button)
+  .use(Notification)
+  .use(Icon)
+  .use(Textarea)
+  .use(Avatar)
+  .use(Input)
+  .use(Link)
+  .use(Breadcrumbs)
+  .mount('#app');
