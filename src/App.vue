@@ -115,9 +115,17 @@
       <v-avatar src="https://avatars.dicebear.com/api/human/yard.svg?width=285&mood=happy" size="16px" />
       <v-avatar name="Eobard Thawne" size="32px" />
     </div>
-    <div href="https://bytedance.feishu.cn/docx/JCydd1ANyoGG7Cxng55co9a1nqP" class="title">Link:</div>
+    <div class="title">Link:</div>
     <div>
       <v-link animateUnderline href="https://vuse-ui.github.io/vuse/">Doc</v-link>
+    </div>
+    <div class="title">Breadcrumbs:</div>
+    <div class="notification-demo">
+      <v-breadcrumbs>
+        <v-link animateUnderline href="#parent">Parent Page</v-link>
+        <v-link animateUnderline href="#sub">Sub-Parent Page</v-link>
+        <v-link animateUnderline href="http://127.0.0.1:3000/">Doc</v-link>
+      </v-breadcrumbs>
     </div>
   </div>
 </template>

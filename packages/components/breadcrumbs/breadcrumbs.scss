@@ -1,0 +1,6 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+@include b(breadcrumbs) {
+  display: flex;
+  align-items: center;
+}

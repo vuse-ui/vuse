@@ -1,12 +1,12 @@
 import type { App } from 'vue';
-import link from './link.vue';
+import Link from './link.vue';
 
-export { link };
+export { Link };
 export default {
   title: 'Link 链接',
   category: '通用',
   status: '100%',
   install(app: App): void {
-    app.component(link.name, link);
+    app.component(Link.name, Link);
   },
 };

@@ -13,8 +13,6 @@ const classList = computed(() => [
   'v-link',
   {
     'v-link-underLine': props.underLine,
-  },
-  {
     'v-link-animateUnderline': props.underLine && props.animateUnderline,
   },
 ]);
