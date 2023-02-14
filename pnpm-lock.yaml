@@ -957,7 +957,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.0.4_sass@1.57.1
+      vite: 4.0.4
       vue: 3.2.45
     dev: true
 
