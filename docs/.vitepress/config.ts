@@ -15,8 +15,12 @@ export default defineConfig({
       {
         text: 'Components',
         items: [
+          { text: 'Avatar' },
           { text: 'Button', link: '/components/button' },
-          { text: 'ButtonGroup' }
+          { text: 'Icon' },
+          { text: 'Input' },
+          { text: 'Notification' },
+          { text: 'Textarea' },
         ]
       }
     ],
