@@ -3,11 +3,12 @@
     type="button"
     class="v-button"
     :class="classList"
-    :disabled="disabled || loading"
+    :disabled="disabled"
     :loading="loading"
     @click="handlerClick"
   >
-    <slot></slot>
+    <div name="slot"><slot></slot></div>
+    <span v-if="loading"></span>
   </button>
 </template>
 
@@ -20,12 +21,13 @@ import { buttonProps, Emits } from './props';
 const props = defineProps(buttonProps);
 const emits = defineEmits(Emits);
 const classList = computed(() => {
-  const { type, size, shape } = props;
+  const { type, size, shape, loading } = props;
   return [
     {
       [`v-button-${type}`]: type,
       [`v-button-${size}`]: size,
       [`v-button-${size}-${shape}`]: shape,
+      [`v-button-loading`]: loading,
     },
   ];
 });

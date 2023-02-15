@@ -52,6 +52,35 @@ $paddings: (
     }
   }
 
+  &-loading {
+    & > span {
+      display: block;
+      height: 16px;
+      width: 16px;
+      border: 2px solid white;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border-left-color: rgb(39, 110, 241);
+      animation-name: loading;
+      animation-duration: 0.7s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      margin: auto;
+    }
+    & > div[name='slot'] {
+      opacity: 0;
+      display: flex;
+      height: 0px;
+    }
+  }
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
   @each $size in map-keys($sizes) {
     $height: map-get($sizes, $size);
 
