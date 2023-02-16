@@ -1,13 +1,13 @@
 import { type App, type Plugin } from 'vue';
 
-import Button from './button';
+import components from './components';
 
 const Vuse: Plugin = {
   install(app: App) {
-    Button.install?.(app);
+    components.forEach(component => {
+      app.use(component);
+    });
   },
 };
 
 export default Vuse;
-
-export * from './button';

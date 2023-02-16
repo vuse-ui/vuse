@@ -1,15 +1,8 @@
-import type { App } from 'vue';
+import { App } from 'vue';
 import Button from './button.vue';
 
-/* Button.install = (app: App) => {
-  app.component('v-btn', Button)
-}; */
-
-// export default Button
-// 很多大厂封装了withInstall方法来导出，但是我发现devUI采用如下导出方式，这样main.ts里use就不会报错
-// 问题出现是由于vue + typescript导致
-// TODO:
-// 更优雅地解决
+// https://cn.vuejs.org/guide/reusability/plugins.html#introduction
+// 根据官方文档，一个插件可以是一个拥有 install() 方法的对象
 export { Button };
 export default {
   title: 'Button 按钮',
