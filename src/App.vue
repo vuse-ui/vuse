@@ -115,10 +115,12 @@
       <v-avatar src="https://avatars.dicebear.com/api/human/yard.svg?width=285&mood=happy" size="16px" />
       <v-avatar name="Eobard Thawne" size="32px" />
     </div>
+
     <div class="title">Link:</div>
     <div>
       <v-link animateUnderline href="https://vuse-ui.github.io/vuse/">Doc</v-link>
     </div>
+
     <div class="title">Breadcrumbs:</div>
     <div class="notification-demo">
       <v-breadcrumbs>
@@ -126,6 +128,60 @@
         <v-link animateUnderline href="#sub">Sub-Parent Page</v-link>
         <v-link animateUnderline href="http://127.0.0.1:3000/">Doc</v-link>
       </v-breadcrumbs>
+    </div>
+
+    <div class="title">List：</div>
+    <div class="list-demo">
+      <span>Default Size || Add border</span>
+      <v-list bordered>
+        <v-list-item>list item 1</v-list-item>
+        <v-list-item>list item 2</v-list-item>
+      </v-list>
+      <span>Mini Size || Add header or footer </span>
+      <v-list size="mini" header="header" footer="footer">
+        <v-list-item>list item 1</v-list-item>
+        <v-list-item>list item 2</v-list-item>
+      </v-list>
+      <span>Large Size || Custom header or footer</span>
+      <v-list size="large">
+        <template #header>header <v-icon name="alert" title="Alert" size="16" color="red" /> </template>
+        <v-list-item>list item 1</v-list-item>
+        <v-list-item>list item 2</v-list-item>
+        <template #footer>footer <v-icon name="alert" title="Alert" size="16" color="green" /></template>
+      </v-list>
+    </div>
+
+    <div class="title">Table:</div>
+    <div class="table-demo">
+      <span>Basic table</span>
+      <v-table :dataSource="dataSource" :columns="columns">
+        <template #bodyCell="{ column, record }">
+          <template v-if="column.dataIndex === 'operation'">
+            <v-button size="mini" type="primary" @click="operationFn(record.key)">操作</v-button>
+          </template>
+        </template>
+      </v-table>
+      <span>Table with border</span>
+      <v-table bordered :dataSource="dataSource" :columns="columns">
+        <template #headerCell="{ column }">
+          <template v-if="column.key === 'name'">
+            <span style="display: flex">
+              <v-avatar src="https://avatars.dicebear.com/api/human/yard.svg?width=285&mood=happy" size="16px" />
+              Name
+            </span>
+          </template>
+        </template>
+        <template #bodyCell="{ column, text, record }">
+          <template v-if="column.dataIndex === 'address'">
+            <v-link style="color: red">{{ text }}</v-link>
+          </template>
+          <template v-if="column.dataIndex === 'operation'">
+            <v-button size="mini" type="primary" @click="operationFn(record.key)">操作</v-button>
+          </template>
+        </template>
+        <template #header>Header</template>
+        <template #footer>Footer</template>
+      </v-table>
     </div>
   </div>
 </template>
@@ -136,6 +192,11 @@ import { ref } from 'vue';
 const greeting = () => {
   alert('Clicked!');
 };
+
+const operationFn = (key: string) => {
+  alert(`你操作数据的key为：${key}`);
+};
+
 const inputs = ref<{ [n: string]: string }>({
   error: 'Error Textarea',
   positive: 'Positive Textarea',
@@ -156,6 +217,43 @@ const inputStatus = ref({
   readonly: false,
   clearable: false,
 });
+
+const dataSource = [
+  {
+    key: '1',
+    name: '胡彦斌',
+    age: 32,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    key: '2',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+];
+const columns = [
+  {
+    title: '姓名',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: '年龄',
+    dataIndex: 'age',
+    key: 'age',
+  },
+  {
+    title: '住址',
+    dataIndex: 'address',
+    key: 'address',
+  },
+  {
+    title: '操作',
+    dataIndex: 'operation',
+    key: 'operation',
+  },
+];
 </script>
 <style scoped>
 .title {
@@ -170,5 +268,9 @@ const inputStatus = ref({
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.list-demo,
+.table-demo {
+  width: 50%;
 }
 </style>
