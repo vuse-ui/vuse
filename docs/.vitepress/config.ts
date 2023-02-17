@@ -25,7 +25,7 @@ export default defineConfig({
       {
         text: 'Components',
         items: [
-          { text: 'Avatar' },
+          { text: 'Avatar', link: '/components/avatar/' },
           { text: 'Button', link: '/components/button/' },
           { text: 'Icon' },
           { text: 'Input' },
