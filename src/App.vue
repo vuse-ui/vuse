@@ -154,7 +154,13 @@
     <div class="title">Table:</div>
     <div class="table-demo">
       <span>Basic table</span>
-      <v-table :dataSource="dataSource" :columns="columns"> </v-table>
+      <v-table :dataSource="dataSource" :columns="columns">
+        <template #bodyCell="{ column, record }">
+          <template v-if="column.dataIndex === 'operation'">
+            <v-button size="mini" type="primary" @click="operationFn(record.key)">操作</v-button>
+          </template>
+        </template>
+      </v-table>
       <span>Table with border</span>
       <v-table bordered :dataSource="dataSource" :columns="columns">
         <template #headerCell="{ column }">
@@ -165,9 +171,12 @@
             </span>
           </template>
         </template>
-        <template #bodyCell="{ column, text }">
+        <template #bodyCell="{ column, text, record }">
           <template v-if="column.dataIndex === 'address'">
             <v-link style="color: red">{{ text }}</v-link>
+          </template>
+          <template v-if="column.dataIndex === 'operation'">
+            <v-button size="mini" type="primary" @click="operationFn(record.key)">操作</v-button>
           </template>
         </template>
         <template #header>Header</template>
@@ -183,6 +192,11 @@ import { ref } from 'vue';
 const greeting = () => {
   alert('Clicked!');
 };
+
+const operationFn = (key: string) => {
+  alert(`你操作数据的key为：${key}`);
+};
+
 const inputs = ref<{ [n: string]: string }>({
   error: 'Error Textarea',
   positive: 'Positive Textarea',
@@ -233,6 +247,11 @@ const columns = [
     title: '住址',
     dataIndex: 'address',
     key: 'address',
+  },
+  {
+    title: '操作',
+    dataIndex: 'operation',
+    key: 'operation',
   },
 ];
 </script>

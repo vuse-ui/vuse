@@ -16,7 +16,7 @@
       <tbody>
         <tr v-for="(data, index) in dataSource" :key="index">
           <td v-for="col in columns" :key="index + col.key">
-            <slot name="bodyCell" :column="col" :text="(data as any)[col.key]">
+            <slot name="bodyCell" :column="col" :text="(data as any)[col.key]" :record="data">
               {{ (data as any)[col.key] }}
             </slot>
           </td>
@@ -36,8 +36,7 @@ import { tableProps } from './props';
 
 const slotHeader = !!useSlots().header;
 const slotFooter = !!useSlots().footer;
-const slotBodyCell = !!useSlots().bodyCell;
-// window.console.log($slots);
+
 const props = defineProps(tableProps);
 const classList = computed(() => {
   const { bordered } = props;
