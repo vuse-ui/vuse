@@ -8,4 +8,5 @@ import Notification from './notification';
 import Textarea from './textarea';
 import List from './list';
 import ListItem from './list/item';
-export default [Avatar, Breadcrumbs, Button, Icon, Input, Link, Notification, Textarea, List, ListItem];
+import Table from './table';
+export default [Avatar, Breadcrumbs, Button, Icon, Input, Link, Notification, Textarea, List, ListItem, Table];
