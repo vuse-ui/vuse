@@ -7,11 +7,19 @@ export default defineConfig({
   description: 'A modern Vue3 component library',
   base: '/vuse/',
   themeConfig: {
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/vuse-ui/vuse' }
+    ],
+    editLink: {
+      pattern: 'https://github.com/vuse-ui/vuse/blob/dev/docs/:path',
+      text: 'Edit on Github'
+    },
     sidebar: [
       {
         text: 'Guide',
         items: [
-          { text: 'Getting Started', link: '/guide/getting-started' }
+          { text: 'Getting Started', link: '/guide/getting-started' },
+          { text: 'Dark Mode', link: '/guide/dark-mode' },
         ]
       },
       {
@@ -26,6 +34,9 @@ export default defineConfig({
         ]
       }
     ],
+    footer: {
+      copyright: 'Copyright © 2023 Vuse-ui'
+    }
   },
   markdown: {
     config(md) {

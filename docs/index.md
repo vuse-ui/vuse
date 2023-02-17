@@ -10,11 +10,11 @@ lastUpdated: true
 
 hero:
 
-  name: vuse-ui
+  name: VuseUI
 
   text: A modern vue3 component library
 
-  tagline: Vue3 + TypeScript
+  tagline: Simple, modern and performant
 
   actions:
 
@@ -26,8 +26,8 @@ hero:
 
     - theme: alt
 
-      text: Components
+      text: Vue on Github
 
-      link: /components
+      link: 'https://github.com/vuse-ui/vuse'
 
 ---
