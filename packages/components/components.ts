@@ -6,5 +6,6 @@ import Input from './input';
 import Link from './link';
 import Notification from './notification';
 import Textarea from './textarea';
-
-export default [Avatar, Breadcrumbs, Button, Icon, Input, Link, Notification, Textarea];
+import List from './list';
+import ListItem from './list/item';
+export default [Avatar, Breadcrumbs, Button, Icon, Input, Link, Notification, Textarea, List, ListItem];

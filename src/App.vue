@@ -127,6 +127,26 @@
         <v-link animateUnderline href="http://127.0.0.1:3000/">Doc</v-link>
       </v-breadcrumbs>
     </div>
+    <div class="title">List：</div>
+    <div class="list-demo">
+      <span>Default Size || Add border</span>
+      <v-list bordered>
+        <v-list-item>list item 1</v-list-item>
+        <v-list-item>list item 2</v-list-item>
+      </v-list>
+      <span>Mini Size || Add header or footer </span>
+      <v-list size="mini" header="header" footer="footer">
+        <v-list-item>list item 1</v-list-item>
+        <v-list-item>list item 2</v-list-item>
+      </v-list>
+      <span>Large Size || Custom header or footer</span>
+      <v-list size="large">
+        <template #header>header <v-icon name="alert" title="Alert" size="16" color="red" /> </template>
+        <v-list-item>list item 1</v-list-item>
+        <v-list-item>list item 2</v-list-item>
+        <template #footer>footer <v-icon name="alert" title="Alert" size="16" color="green" /></template>
+      </v-list>
+    </div>
   </div>
 </template>
 
@@ -170,5 +190,8 @@ const inputStatus = ref({
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.list-demo {
+  width: 50%;
 }
 </style>

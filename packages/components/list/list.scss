@@ -1,0 +1,45 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+$padding-x: (
+  mini: 16px,
+  default: 24px,
+  large: 24px,
+);
+$padding-y: (
+  mini: 8px,
+  default: 12px,
+  large: 16px,
+);
+@include b(list) {
+  width: 100%;
+  &-bordered {
+    border: 1px solid #d9d9d9;
+  }
+
+  border-radius: 8px;
+  &-header {
+    border-bottom: 1px solid #d9d9d9;
+  }
+  &-footer {
+    border-top: 1px solid #d9d9d9;
+  }
+  &-items > &-item {
+    border-bottom: 1px solid #d9d9d9;
+  }
+  &-items > &-item:last-child {
+    border-bottom: none;
+  }
+  &-empty {
+    padding: 2rem;
+    text-align: center;
+  }
+  @each $size in map-keys($padding-x) {
+    &-#{$size} {
+      .v-list-header,
+      .v-list-footer,
+      .v-list-items > .v-list-item {
+        padding: map-get($padding-y, $size) map-get($padding-x, $size);
+      }
+    }
+  }
+}
