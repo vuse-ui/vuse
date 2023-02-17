@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress';
+import vueSetupExtend from 'vite-plugin-vue-setup-extend';
+import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin';
 
 export default defineConfig({
   title: 'Vuse-UI',
@@ -16,7 +18,7 @@ export default defineConfig({
         text: 'Components',
         items: [
           { text: 'Avatar' },
-          { text: 'Button', link: '/components/button' },
+          { text: 'Button', link: '/components/button/' },
           { text: 'Icon' },
           { text: 'Input' },
           { text: 'Notification' },
@@ -24,5 +26,16 @@ export default defineConfig({
         ]
       }
     ],
+  },
+  markdown: {
+    config(md) {
+      md.use(componentPreview);
+      md.use(containerPreview);
+    }
+  },
+  vite: {
+    plugins: [
+      vueSetupExtend(),
+    ]
   }
 });
