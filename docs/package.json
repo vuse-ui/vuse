@@ -22,6 +22,8 @@
     "vitepress": "1.0.0-alpha.46"
   },
   "dependencies": {
+    "@vitepress-demo-preview/component": "^2.1.0",
+    "@vitepress-demo-preview/plugin": "^1.1.6",
     "@vuse-ui/components": "workspace:^1.0.0",
     "@vuse-ui/themes": "workspace:^1.0.0"
   }
