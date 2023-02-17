@@ -269,7 +269,8 @@ const columns = [
   flex-direction: column;
   gap: 1rem;
 }
-.list-demo {
+.list-demo,
+.table-demo {
   width: 50%;
 }
 </style>
