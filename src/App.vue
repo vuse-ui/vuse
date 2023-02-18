@@ -182,6 +182,8 @@
         <template #header>Header</template>
         <template #footer>Footer</template>
       </v-table>
+      <span>Fixed meter head</span>
+      <v-table height="70px" bordered :dataSource="dataSource" :columns="columns"> </v-table>
     </div>
   </div>
 </template>
@@ -237,22 +239,24 @@ const columns = [
     title: '姓名',
     dataIndex: 'name',
     key: 'name',
+    width: 150,
   },
   {
     title: '年龄',
     dataIndex: 'age',
     key: 'age',
+    width: 300,
   },
   {
     title: '住址',
     dataIndex: 'address',
     key: 'address',
   },
-  {
-    title: '操作',
-    dataIndex: 'operation',
-    key: 'operation',
-  },
+  // {
+  //   title: '操作',
+  //   dataIndex: 'operation',
+  //   key: 'operation',
+  // },
 ];
 </script>
 <style scoped>

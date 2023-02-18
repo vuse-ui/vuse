@@ -2,6 +2,7 @@ interface ColumnProps {
   dataIndex: string;
   title: string;
   key: string;
+  width: number | string;
 }
 
 export const tableProps = {
@@ -14,5 +15,8 @@ export const tableProps = {
   bordered: {
     type: Boolean,
     default: false,
+  },
+  height: {
+    type: Number || String,
   },
 };
