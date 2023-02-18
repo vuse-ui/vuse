@@ -45,10 +45,5 @@ const columns = [
     dataIndex: 'address',
     key: 'address',
   },
-  {
-    title: '操作',
-    dataIndex: 'operation',
-    key: 'operation',
-  },
 ];
 </script>
