@@ -30,6 +30,7 @@ export default defineConfig({
           { text: 'Notification' },
           { text: 'Textarea' },
           { text: 'List', link: '/components/list/' },
+          { text: 'Table', link: '/components/table/' },
         ],
       },
     ],
