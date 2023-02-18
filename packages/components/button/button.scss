@@ -27,7 +27,7 @@ $paddings: (
   background-color: black;
   border: 0;
   cursor: pointer;
-
+  line-height: initial;
   &-primary {
     background-color: black;
 
@@ -50,6 +50,9 @@ $paddings: (
     &:hover {
       background-color: rgb(246, 246, 246);
     }
+  }
+  & > div[name='slot'] {
+    overflow-wrap: normal;
   }
 
   &-loading {
