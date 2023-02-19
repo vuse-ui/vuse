@@ -52,7 +52,7 @@
         </table>
       </div>
       <div v-if="!height" class="v-table-content">
-        <table>
+        <table :style="{ width: typeof scrollWidth === 'number' ? scrollWidth + 'px' : scrollWidth, minWidth: '100%' }">
           <colgroup>
             <col
               v-for="(col, i) in columns"
@@ -62,7 +62,12 @@
           </colgroup>
           <thead>
             <tr>
-              <th v-for="(col, i) in columns" :key="(col.key || col.dataIndex) + i">
+              <th
+                v-for="(col, i) in columns"
+                :key="(col.key || col.dataIndex) + i"
+                :style="stickyStyleObject(col.fixed)"
+                :class="{ sticky: col.fixed }"
+              >
                 <slot name="headerCell" :column="col">
                   {{ col.title }}
                 </slot>
@@ -71,7 +76,12 @@
           </thead>
           <tbody>
             <tr v-for="(data, index) in dataSource" :key="(data as object).toString() + index">
-              <td v-for="(col, i) in columns" :key="(col.key || col.dataIndex) + i + index">
+              <td
+                v-for="(col, i) in columns"
+                :key="(col.key || col.dataIndex) + i + index"
+                :style="stickyStyleObject(col.fixed)"
+                :class="{ sticky: col.fixed }"
+              >
                 <slot name="bodyCell" :column="col" :text="(data as any)[col.dataIndex]" :record="data">
                   {{ (data as any)[col.dataIndex] }}
                 </slot>
@@ -100,7 +110,7 @@ const tableBodyContainer = ref<null | HTMLElement>(null);
 const tableBodyContent = ref<null | HTMLElement>(null);
 const scrollbarWidth = ref<number>(0);
 
-watch([tableBodyContainer, tableBodyContent], ([container, content], [prevContainer, prevContent]) => {
+watch([tableBodyContainer, tableBodyContent], ([container, content]) => {
   if (container && content) {
     scrollbarWidth.value = container.offsetWidth - content.offsetWidth;
   }
@@ -116,4 +126,16 @@ const classList = computed(() => {
     },
   ];
 });
+
+const stickyStyleObject = (fixed?: boolean | 'left' | 'right') => {
+  if (!fixed) {
+    return;
+  }
+  if (typeof fixed === 'boolean') {
+    fixed = 'left';
+  }
+  return {
+    [`${fixed}`]: 0,
+  };
+};
 </script>

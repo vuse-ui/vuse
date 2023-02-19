@@ -13,11 +13,19 @@
     border-radius: 2px 2px 0 0;
     border-collapse: collapse;
     margin: 0;
+    .sticky {
+      position: sticky;
+      border: 1px solid #ededed;
+      z-index: 2;
+    }
+    td {
+      background-color: #ffffff;
+    }
   }
 
-  table thead tr,
+  table thead th,
   &-footer,
-  table tbody tr:hover {
+  table tbody tr:hover td {
     background-color: #fafafa;
   }
 
