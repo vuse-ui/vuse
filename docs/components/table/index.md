@@ -5,25 +5,25 @@ Display multiple data with similar format.
 ## Basic
 
 :::preview Basic Usage || Basic table is just for data display.
-demo-preview=./Basic.vue
+demo-preview=./basic.vue
 :::
 
 ## Border
 
 :::preview Border || Use the bordered attribute to set the table display border.
-demo-preview=./Border.vue
+demo-preview=./border.vue
 :::
 
 ## Header And Footer
 
 :::preview Customizing the header and footer || Customizing the header and footer of table by setting header and footer property.
-demo-preview=./HeaderAndFooter.vue
+demo-preview=./headerAndFooter.vue
 :::
 
 ## Custom Cells
 
 :::preview Custom Cells || Customize cells through slots.
-demo-preview=./CustomCells.vue
+demo-preview=./customCells.vue
 :::
 
 ## Fixed Header
