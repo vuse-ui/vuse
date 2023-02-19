@@ -6,14 +6,14 @@
       @blur="handleBlur"
       @change="handleChange"
       v-bind="$attrs"
-      :type="props.type"
+      :type="type"
       :value="inputValue"
-      :disabled="props.disabled"
-      :placeholder="props.placeholder"
-      :readonly="props.readonly"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      :readonly="readonly"
     />
     <v-icon
-      v-if="inputValue && props.clearable && !props.readonly && !props.disabled"
+      v-if="inputValue && clearable && !readonly && !disabled"
       class="v-input-icon"
       name="delete-alt"
       title="Delete"
@@ -25,7 +25,7 @@
 
 <script setup lang="ts" name="VInput">
 import './input.scss';
-import { computed, toRef, ref, watchEffect } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import { inputProps, Emits } from './props';
 
 const props = defineProps(inputProps);
@@ -50,11 +50,10 @@ const classList = computed(() => {
 });
 
 // inputValue 是为了在 v-input 没有绑定 v-model 属性的情况下依然能 handleClear 清空文本框
-const modelValue = toRef(props, 'modelValue');
 const inputValue = ref('');
 
 watchEffect(() => {
-  inputValue.value = modelValue.value;
+  inputValue.value = props.modelValue;
 });
 
 const handleInput = (e: Event) => {

@@ -74,33 +74,16 @@
 
     <div class="title">Input:</div>
     <div class="notification-demo">
-      <v-input :size="inputSize" v-model="inputs[inputSize]" v-bind="inputStatus" />
+      <v-input :size="inputSize" v-model="inputs[inputSize]" v-bind="inputFeatures" />
       <label for="pet-select">Choose size:</label>
       <select name="size" id="size" v-model="inputSize">
         <option v-for="size of sizes" :value="size" :key="size">{{ size }}</option>
       </select>
       <fieldset>
         <legend>Choose input's features:</legend>
-        <div>
-          <input type="checkbox" id="Disabled" name="Disabled" value="disabled" v-model="inputStatus.disabled" />
-          <label for="Disabled">Disabled</label>
-        </div>
-
-        <div>
-          <input type="checkbox" id="Error" name="Error" value="error" v-model="inputStatus.error" />
-          <label for="Error">Error</label>
-        </div>
-        <div>
-          <input type="checkbox" id="Positive" name="Positive" value="positive" v-model="inputStatus.positive" />
-          <label for="Positive">Positive</label>
-        </div>
-        <div>
-          <input type="checkbox" id="Readonly" name="Readonly" value="readonly" v-model="inputStatus.readonly" />
-          <label for="Readonly">Readonly</label>
-        </div>
-        <div>
-          <input type="checkbox" id="Clearable" name="Clearable" value="clearable" v-model="inputStatus.clearable" />
-          <label for="Clearable">Clearable</label>
+        <div v-for="(val, key) in inputFeatures" :key="key">
+          <input type="checkbox" :id="key" name="key" value="key" v-model="inputFeatures[key]" />
+          <label :for="key">{{ key }}</label>
         </div>
       </fieldset>
     </div>
@@ -272,7 +255,7 @@ const inputs = ref<{ [n: string]: string }>({
 });
 const inputSize = ref('default');
 const sizes = ['mini', 'compact', 'default', 'large'];
-const inputStatus = ref({
+const inputFeatures = ref({
   error: false,
   positive: false,
   disabled: false,
@@ -339,7 +322,7 @@ const selectFeatures = reactive({
   clearable: false,
   loading: false,
   autoFocus: true,
-  searchable: true,
+  searchable: false,
 });
 const selectTypes = ['text', 'search'];
 const selectType = ref('text');
