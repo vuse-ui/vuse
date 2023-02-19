@@ -28,7 +28,7 @@ export default defineConfig({
           { text: 'Icon' },
           { text: 'Input' },
           { text: 'Notification' },
-          { text: 'Textarea' },
+          { text: 'Textarea', link: '/components/textarea/' },
           { text: 'List', link: '/components/list/' },
           { text: 'Table', link: '/components/table/' },
         ],

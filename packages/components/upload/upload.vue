@@ -68,7 +68,7 @@ interface fileEvent extends EventInit {
   };
 }
 //定义上传事件
-const handlerChange = (e: fileEvent): void => {
+const handlerChange = (e: Event): void => {
   //展示上传界面
   isUpload.value = true;
   //重制本来样式
@@ -89,13 +89,14 @@ const handlerChange = (e: fileEvent): void => {
       msg.value = '';
       //上传文件的大小数组
       let fileSizeArr = [];
-      for (let i = 0; i < e.target.files.length; i++) {
-        fileSizeArr.push(Number(e.target.files[i].size));
-        if (i === e.target.files.length - 1) {
-          msg.value += e.target.files[i].name;
+      const files = (e as unknown as fileEvent).target.files;
+      for (let i = 0; i < files.length; i++) {
+        fileSizeArr.push(Number(files[i].size));
+        if (i === files.length - 1) {
+          msg.value += files[i].name;
           break;
         }
-        msg.value += e.target.files[i].name + ' , ';
+        msg.value += files[i].name + ' , ';
       }
       if (
         fileSize(fileSizeArr, Number(file.value.attributes.maxsize.value), Number(file.value.attributes.minsize.value))
