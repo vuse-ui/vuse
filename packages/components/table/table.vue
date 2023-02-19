@@ -8,15 +8,15 @@
         <table>
           <colgroup>
             <col
-              v-for="col in columns"
-              :key="col.key"
+              v-for="(col, i) in columns"
+              :key="(col.key || col.dataIndex) + i"
               :style="{ width: typeof col.width === 'number' ? col.width + 'px' : col.width }"
             />
             <col :style="{ width: scrollbarWidth + 'px' }" />
           </colgroup>
           <thead>
             <tr>
-              <th v-for="col in columns" :key="col.key">
+              <th v-for="(col, i) in columns" :key="(col.key || col.dataIndex) + i">
                 <slot name="headerCell" :column="col">
                   {{ col.title }}
                 </slot>
@@ -35,16 +35,16 @@
         <table ref="tableBodyContent">
           <colgroup>
             <col
-              v-for="col in columns"
-              :key="col.key"
+              v-for="(col, i) in columns"
+              :key="(col.key || col.dataIndex) + i"
               :style="{ width: typeof col.width === 'number' ? col.width + 'px' : col.width }"
             />
           </colgroup>
           <tbody>
-            <tr v-for="(data, index) in dataSource" :key="index">
-              <td v-for="col in columns" :key="index + col.key">
-                <slot name="bodyCell" :column="col" :text="(data as any)[col.key]" :record="data">
-                  {{ (data as any)[col.key] }}
+            <tr v-for="(data, index) in dataSource" :key="(data as object).toString() + index">
+              <td v-for="(col, i) in columns" :key="(col.key || col.dataIndex) + i + index">
+                <slot name="bodyCell" :column="col" :text="(data as any)[col.dataIndex]" :record="data">
+                  {{ (data as any)[col.dataIndex] }}
                 </slot>
               </td>
             </tr>
@@ -55,14 +55,14 @@
         <table>
           <colgroup>
             <col
-              v-for="col in columns"
-              :key="col.key"
+              v-for="(col, i) in columns"
+              :key="(col.key || col.dataIndex) + i"
               :style="{ width: typeof col.width === 'number' ? col.width + 'px' : col.width }"
             />
           </colgroup>
           <thead>
             <tr>
-              <th v-for="col in columns" :key="col.key">
+              <th v-for="(col, i) in columns" :key="(col.key || col.dataIndex) + i">
                 <slot name="headerCell" :column="col">
                   {{ col.title }}
                 </slot>
@@ -70,10 +70,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(data, index) in dataSource" :key="index">
-              <td v-for="col in columns" :key="index + col.key">
-                <slot name="bodyCell" :column="col" :text="(data as any)[col.key]" :record="data">
-                  {{ (data as any)[col.key] }}
+            <tr v-for="(data, index) in dataSource" :key="(data as object).toString() + index">
+              <td v-for="(col, i) in columns" :key="(col.key || col.dataIndex) + i + index">
+                <slot name="bodyCell" :column="col" :text="(data as any)[col.dataIndex]" :record="data">
+                  {{ (data as any)[col.dataIndex] }}
                 </slot>
               </td>
             </tr>
