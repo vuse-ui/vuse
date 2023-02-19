@@ -1,6 +1,11 @@
 @use '@vuse-ui/themes/src/mixins/mixins' as *;
 
 @include b(table) {
+  &-container {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+  }
   table {
     border-spacing: 0;
     width: 100%;
@@ -73,7 +78,7 @@
       }
     }
     .v-table-body {
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 }
