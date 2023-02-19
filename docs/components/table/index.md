@@ -32,6 +32,18 @@ demo-preview=./customCells.vue
 demo-preview=./fixedHeader.vue
 :::
 
+## Fixed Columns
+
+:::preview Fixed Columns || To fix some columns and scroll inside other columns,The actual content width can be set through scrollWidth.
+demo-preview=./fixedColumns.vue
+:::
+
+## Fixed Header And Columns
+
+:::preview Fixed Head And Column || A Solution for displaying large amounts of data with long columns.
+demo-preview=./fixedHeaderAndColumns.vue
+:::
+
 <style>
 .vp-doc tr {
     border-top: none;
