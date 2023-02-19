@@ -7,12 +7,10 @@ export default defineConfig({
   description: 'A modern Vue3 component library',
   base: '/vuse/',
   themeConfig: {
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuse-ui/vuse' }
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/vuse-ui/vuse' }],
     editLink: {
       pattern: 'https://github.com/vuse-ui/vuse/blob/dev/docs/:path',
-      text: 'Edit on Github'
+      text: 'Edit on Github',
     },
     sidebar: [
       {
@@ -20,7 +18,7 @@ export default defineConfig({
         items: [
           { text: 'Getting Started', link: '/guide/getting-started' },
           { text: 'Dark Mode', link: '/guide/dark-mode' },
-        ]
+        ],
       },
       {
         text: 'Components',
@@ -31,22 +29,22 @@ export default defineConfig({
           { text: 'Input' },
           { text: 'Notification' },
           { text: 'Textarea' },
-        ]
-      }
+          { text: 'List', link: '/components/list/' },
+          { text: 'Table', link: '/components/table/' },
+        ],
+      },
     ],
     footer: {
-      copyright: 'Copyright © 2023 Vuse-ui'
-    }
+      copyright: 'Copyright © 2023 Vuse-ui',
+    },
   },
   markdown: {
     config(md) {
       md.use(componentPreview);
       md.use(containerPreview);
-    }
+    },
   },
   vite: {
-    plugins: [
-      vueSetupExtend(),
-    ]
-  }
+    plugins: [vueSetupExtend()],
+  },
 });

@@ -182,12 +182,23 @@
         <template #header>Header</template>
         <template #footer>Footer</template>
       </v-table>
+      <span>Fixed meter head</span>
+      <v-table height="70px" bordered :dataSource="dataSource" :columns="columns"> </v-table>
+      <span>Fixed column</span>
+      <v-table :scrollWidth="1200" bordered :dataSource="dataSource" :columns="columnsFixed"> </v-table>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+interface ColumnProps {
+  dataIndex?: string;
+  title: string;
+  key: string;
+  width?: number | string;
+  fixed?: boolean | string;
+}
 
 const greeting = () => {
   alert('Clicked!');
@@ -232,27 +243,41 @@ const dataSource = [
     address: '西湖区湖底公园1号',
   },
 ];
-const columns = [
+const columns: Array<ColumnProps> = [
   {
     title: '姓名',
     dataIndex: 'name',
     key: 'name',
+    width: 150,
   },
   {
     title: '年龄',
     dataIndex: 'age',
     key: 'age',
+    width: 300,
   },
   {
     title: '住址',
     dataIndex: 'address',
     key: 'address',
   },
-  {
-    title: '操作',
-    dataIndex: 'operation',
-    key: 'operation',
-  },
+  // {
+  //   title: '操作',
+  //   dataIndex: 'operation',
+  //   key: 'operation',
+  // },
+];
+const columnsFixed: Array<ColumnProps> = [
+  { title: 'Full Name', width: 200, dataIndex: 'name', key: 'name', fixed: 'left' },
+  { title: 'Age', width: 50, dataIndex: 'age', key: 'age' },
+  { title: 'Column 1', dataIndex: 'address', key: '1' },
+  { title: 'Column 2', dataIndex: 'address', key: '2' },
+  { title: 'Column 3', dataIndex: 'address', key: '3' },
+  { title: 'Column 4', dataIndex: 'address', key: '4' },
+  { title: 'Column 5', dataIndex: 'address', key: '5' },
+  { title: 'Column 6', dataIndex: 'address', key: '6' },
+  { title: 'Column 7', dataIndex: 'address', key: '7' },
+  { title: 'Column 8', dataIndex: 'address', key: '8', fixed: 'right' },
 ];
 </script>
 <style scoped>
