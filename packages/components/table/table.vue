@@ -12,6 +12,7 @@
               :key="col.key"
               :style="{ width: typeof col.width === 'number' ? col.width + 'px' : col.width }"
             />
+            <col :style="{ width: scrollbarWidth + 'px' }" />
           </colgroup>
           <thead>
             <tr>
@@ -20,6 +21,7 @@
                   {{ col.title }}
                 </slot>
               </th>
+              <th class="v-table-cell-scrollbar"></th>
             </tr>
           </thead>
         </table>
@@ -28,8 +30,9 @@
         v-if="height"
         class="v-table-body"
         :style="{ maxHeight: typeof height === 'number' ? height + 'px' : height }"
+        ref="tableBodyContainer"
       >
-        <table>
+        <table ref="tableBodyContent">
           <colgroup>
             <col
               v-for="col in columns"
@@ -66,7 +69,7 @@
               </th>
             </tr>
           </thead>
-          <tbody :style="{ height: height + 'px' }">
+          <tbody>
             <tr v-for="(data, index) in dataSource" :key="index">
               <td v-for="col in columns" :key="index + col.key">
                 <slot name="bodyCell" :column="col" :text="(data as any)[col.key]" :record="data">
@@ -86,12 +89,22 @@
 </template>
 
 <script setup lang="ts" name="VTable">
-import { computed, useSlots } from 'vue';
+import { computed, useSlots, ref, watch } from 'vue';
 import './table.scss';
 import { tableProps } from './props';
 
 const slotHeader = !!useSlots().header;
 const slotFooter = !!useSlots().footer;
+
+const tableBodyContainer = ref<null | HTMLElement>(null);
+const tableBodyContent = ref<null | HTMLElement>(null);
+const scrollbarWidth = ref<number>(0);
+
+watch([tableBodyContainer, tableBodyContent], ([container, content], [prevContainer, prevContent]) => {
+  if (container && content) {
+    scrollbarWidth.value = container.offsetWidth - content.offsetWidth;
+  }
+});
 
 const props = defineProps(tableProps);
 const classList = computed(() => {

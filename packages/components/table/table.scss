@@ -25,6 +25,7 @@
   &-footer {
     padding: 16px;
   }
+
   table thead tr th {
     color: #000000d9;
     font-weight: 500;
@@ -64,6 +65,12 @@
   &-fixed-header {
     table {
       table-layout: fixed;
+    }
+    .v-table-thead {
+      overflow: hidden;
+      th:nth-last-child(2) {
+        border-right: none;
+      }
     }
     .v-table-body {
       overflow-y: scroll;

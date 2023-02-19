@@ -17,6 +17,6 @@ export const tableProps = {
     default: false,
   },
   height: {
-    type: Number || String,
+    type: [Number, String],
   },
 };
