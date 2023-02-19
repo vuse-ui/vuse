@@ -7,5 +7,7 @@ import Link from './link';
 import Notification from './notification';
 import Textarea from './textarea';
 import Upload from './upload';
-
-export default [Avatar, Breadcrumbs, Button, Icon, Input, Link, Notification, Textarea, Upload];
+import List from './list';
+import ListItem from './list/item';
+import Table from './table';
+export default [Avatar, Breadcrumbs, Button, Icon, Input, Link, Notification, Textarea, Upload, List, ListItem, Table];

@@ -1,0 +1,51 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+@include b(table) {
+  & > table {
+    border-spacing: 0;
+    width: 100%;
+    text-align: left;
+    border-radius: 2px 2px 0 0;
+    border-collapse: collapse;
+  }
+
+  & > table thead tr,
+  &-footer,
+  & > table tbody tr:hover {
+    background-color: #fafafa;
+  }
+
+  & > table tr {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  & > table thead tr th,
+  & > table tbody tr td,
+  &-header,
+  &-footer {
+    padding: 16px;
+  }
+  & > table thead tr th {
+    color: #000000d9;
+    font-weight: 500;
+  }
+
+  &-bordered {
+    table {
+      border: 1px solid #ededed;
+    }
+    table th,
+    table td {
+      border-right: 1px solid #ededed;
+    }
+  }
+  &-bordered > &-header,
+  &-bordered > &-footer {
+    border: 1px solid #ededed;
+  }
+  &-bordered > &-header {
+    border-bottom: none;
+  }
+  &-bordered > &-footer {
+    border-top: none;
+  }
+}
