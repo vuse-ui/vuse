@@ -16,6 +16,7 @@
     .sticky {
       position: sticky;
       z-index: 2;
+      display: block;
     }
     td {
       background-color: #ffffff;
@@ -79,7 +80,7 @@
     border-top: none;
   }
   &-bordered.v-table-fixed-column {
-    .v-table-container {
+    .v-table-container .sticky {
       border-left: 1px solid #f0f0f0;
       border-right: 1px solid #f0f0f0;
     }
