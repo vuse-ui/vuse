@@ -26,7 +26,7 @@
 
 <script lang="ts" setup name="v-upload">
 import './upload.scss';
-import { ref, defineProps, computed } from 'vue';
+import { ref, computed } from 'vue';
 import { uploadProps } from './props';
 import { uuid } from 'vue-uuid';
 //接受传参
