@@ -183,7 +183,10 @@
         <template #footer>Footer</template>
       </v-table>
       <span>Fixed meter head</span>
-      <v-table height="70px" bordered :dataSource="dataSource" :columns="columns"> </v-table>
+      <v-table height="70px" bordered :dataSource="dataSource" :columns="columns">
+        <template #header>Header</template>
+        <template #footer>Footer</template>
+      </v-table>
       <span>Fixed column</span>
       <v-table :scrollWidth="1200" bordered :dataSource="dataSource" :columns="columnsFixed"> </v-table>
     </div>

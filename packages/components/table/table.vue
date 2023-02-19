@@ -51,8 +51,12 @@
           </tbody>
         </table>
       </div>
-      <div v-if="!height" class="v-table-content">
-        <table :style="{ width: typeof scrollWidth === 'number' ? scrollWidth + 'px' : scrollWidth, minWidth: '100%' }">
+      <div
+        v-if="!height"
+        class="v-table-content"
+        :style="{ width: typeof scrollWidth === 'number' ? scrollWidth + 'px' : scrollWidth, minWidth: '100%' }"
+      >
+        <table>
           <colgroup>
             <col
               v-for="(col, i) in columns"
@@ -109,7 +113,7 @@ const slotFooter = !!useSlots().footer;
 const tableBodyContainer = ref<null | HTMLElement>(null);
 const tableBodyContent = ref<null | HTMLElement>(null);
 const scrollbarWidth = ref<number>(0);
-
+const fixedColumn = ref<boolean>(false);
 watch([tableBodyContainer, tableBodyContent], ([container, content]) => {
   if (container && content) {
     scrollbarWidth.value = container.offsetWidth - content.offsetWidth;
@@ -123,6 +127,7 @@ const classList = computed(() => {
     {
       ['v-table-bordered']: bordered,
       ['v-table-fixed-header']: height,
+      ['v-table-fixed-column']: fixedColumn,
     },
   ];
 });
@@ -131,6 +136,7 @@ const stickyStyleObject = (fixed?: boolean | 'left' | 'right') => {
   if (!fixed) {
     return;
   }
+  fixedColumn.value = true;
   if (typeof fixed === 'boolean') {
     fixed = 'left';
   }
