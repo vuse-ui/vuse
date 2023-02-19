@@ -1,0 +1,147 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+$color-basic: #eee;
+$color-important: rgb(254, 235, 232);
+$color-warning: rgb(250, 241, 225);
+$color-positive: rgb(224, 240, 232);
+@keyframes loading-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@include b(upload) {
+  box-sizing: border-box;
+  font-family: system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: darken($color-basic, 55%);
+  height: 140px;
+  word-spacing: 2px;
+  &[size='normal'] {
+    width: 70%;
+  }
+  &[size='small'] {
+    width: 40%;
+  }
+  &[size='large'] {
+    width: 100%;
+  }
+  &[error='true'] {
+    color: darken($color-important, 55%);
+    & > div {
+      background: $color-important;
+      border-color: rgb(237, 139, 130);
+    }
+    & label,
+    & button {
+      background-color: darken($color-important, 3%);
+      &:hover {
+        background-color: darken($color-important, 10%);
+      }
+    }
+  }
+  &[vstyle='important'] {
+    color: darken($color-warning, 55%);
+    & > div {
+      background: $color-warning;
+      border-color: rgb(253, 181, 53);
+    }
+    & label,
+    & button {
+      background-color: darken($color-warning, 3%);
+      &:hover {
+        background-color: darken($color-warning, 10%);
+      }
+    }
+  }
+  &[vstyle='positive'] {
+    color: darken($color-positive, 55%);
+    & > div {
+      background: $color-positive;
+      border-color: rgb(87, 202, 141);
+    }
+    & label,
+    & button {
+      background-color: darken($color-positive, 3%);
+      &:hover {
+        background-color: darken($color-positive, 10%);
+      }
+    }
+  }
+  & .upload {
+    border-width: 2px;
+  }
+  & .uploading {
+    border-width: 0px;
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    border-radius: 12px;
+    background: $color-basic;
+    border: dashed darken($color-basic, 25%);
+  }
+  & .loadingBar {
+    width: 85%;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #ddd;
+    margin: 5px auto;
+    position: relative;
+    &::before {
+      content: '';
+      background-color: rgb(21, 21, 255);
+      display: inline-block;
+      position: absolute;
+      border-radius: 4px;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      animation: loading-animation 5s linear 1 forwards;
+    }
+  }
+  & label {
+    display: inline-block;
+    margin: 5px auto;
+    padding: 0 12px;
+    line-height: 36px;
+    background-color: darken($color-basic, 3%);
+    border-radius: 20px;
+    font-weight: 500;
+    color: black;
+    transition: all 0.5s linear;
+    cursor: pointer;
+    &[disabled='true'] {
+      cursor: not-allowed;
+    }
+    &:hover {
+      background-color: darken($color-basic, 10%);
+    }
+  }
+  & button {
+    display: inline-block;
+    margin: 0px auto;
+    padding: 0 12px;
+    line-height: 36px;
+    background-color: darken($color-basic, 6%);
+    border-radius: 20px;
+    font-weight: 600;
+    color: red;
+    transition: all 0.5s linear;
+    cursor: pointer;
+    border-width: 0;
+    font-size: 16px;
+    &:hover {
+      background-color: darken($color-basic, 10%);
+    }
+  }
+  & + [type='file'] {
+    display: none;
+  }
+}
