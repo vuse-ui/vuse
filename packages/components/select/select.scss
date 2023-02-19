@@ -1,0 +1,132 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+$sizes: (
+  mini: 28px,
+  compact: 32px,
+  default: 44px,
+  large: 56px,
+);
+
+$padding-y: (
+  mini: 4px,
+  compact: 6px,
+  default: 10px,
+  large: 14px,
+);
+
+$font-size: (
+  mini: 12px,
+  compact: 14px,
+  default: 16px,
+  large: 18px,
+);
+
+@include b(select) {
+  display: flex;
+  position: relative;
+  border: solid #eeeeee 2px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background: #eeeeee;
+  align-items: center;
+  &-icon {
+    cursor: pointer;
+  }
+  &:has(.v-select-clear, .v-select-down) {
+    padding-right: 12px;
+  }
+  &:has(.v-select-search) {
+    padding-left: 14px;
+  }
+  &-loading {
+    & > span {
+      display: block;
+      height: 16px;
+      width: 16px;
+      border: 2px solid white;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border-left-color: rgb(39, 110, 241);
+      animation-name: loading;
+      animation-duration: 0.7s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  }
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  & > input {
+    background: transparent;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: inherit;
+    &:not(:focus) ~ .v-select-menu {
+      visibility: hidden;
+    }
+  }
+  & > div.v-select-menu {
+    position: absolute;
+    transition-duration: 0.1s;
+    width: calc(100% + 4px);
+    top: calc(100% + 2px);
+    left: -2px;
+    & ul {
+      background-color: white;
+      box-shadow: rgb(0 0 0 / 16%) 0px 4px 16px;
+      border-radius: 8px;
+      margin: 0;
+      padding: 8px 0;
+      box-sizing: border-box;
+      & li {
+        color: rgb(84, 84, 84);
+        list-style: disc;
+        cursor: pointer;
+        padding: 8px 16px;
+        line-height: 20px;
+        &:hover {
+          background-color: rgb(246, 246, 246);
+          color: black;
+        }
+        &[selected='true'] {
+          color: black;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  &:has(:focus) {
+    border-color: rgb(7, 7, 7);
+    background: #eeeeee;
+  }
+  &-disabled {
+    cursor: not-allowed;
+  }
+  &-positive {
+    background-color: rgb(230, 242, 237);
+    border-color: rgb(102, 209, 158);
+  }
+  &-error {
+    background-color: rgb(255, 239, 237);
+    border-color: rgb(241, 153, 142);
+  }
+  @each $size in map-keys($sizes) {
+    $height: map-get($sizes, $size);
+    &-#{$size} > input {
+      @if $size == mini {
+        border-radius: 4px;
+      }
+      height: $height;
+      padding: #{map-get($padding-y, $size)} 14px;
+      font-size: #{map-get($font-size, $size)};
+    }
+  }
+}

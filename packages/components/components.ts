@@ -10,4 +10,19 @@ import Upload from './upload';
 import List from './list';
 import ListItem from './list/item';
 import Table from './table';
-export default [Avatar, Breadcrumbs, Button, Icon, Input, Link, Notification, Textarea, Upload, List, ListItem, Table];
+import Select from './select';
+export default [
+  Avatar,
+  Breadcrumbs,
+  Button,
+  Icon,
+  Input,
+  Link,
+  Notification,
+  Textarea,
+  Upload,
+  List,
+  ListItem,
+  Table,
+  Select,
+];

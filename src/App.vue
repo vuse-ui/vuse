@@ -205,11 +205,44 @@
       <span>Fixed column</span>
       <v-table :scrollWidth="1200" bordered :dataSource="dataSource" :columns="columnsFixed"> </v-table>
     </div>
+    <div class="title">Select:</div>
+    <div class="notification-demo">
+      <v-select :size="selectSize" :type="selectType" v-bind="selectFeatures" v-model="selectVal" />
+      <!-- :options="[
+                        { label: 'AliceBlue', id: '#F0F8FF' },
+                        { label: 'AntiqueWhite', id: '#FAEBD7' },
+                        { label: 'Aqua', id: '#00FFFF' },
+                        { label: 'Aquamarine', id: '#7FFFD4' },
+                        { label: 'Azure', id: '#F0FFFF' },
+                        { label: 'Beige', id: '#F5F5DC' },
+                        { label: 'AliceBlue', id: '#F0F8FF' },
+                        { label: 'AntiqueWhite', id: '#FAEBD7' },
+                        { label: 'Aqua', id: '#00FFFF' },
+                        { label: 'Aquamarine', id: '#7FFFD4' },
+                        { label: 'Azure', id: '#F0FFFF' },
+                        { label: 'Beige', id: '#F5F5DC' },
+                      ]" -->
+      <label for="pet-select">Choose type:</label>
+      <select name="size" id="size" v-model="selectType">
+        <option v-for="item of selectTypes" :value="item" :key="item">{{ item }}</option>
+      </select>
+      <label for="pet-select">Choose size:</label>
+      <select name="size" id="size" v-model="selectSize">
+        <option v-for="size of sizes" :value="size" :key="size">{{ size }}</option>
+      </select>
+      <fieldset>
+        <legend>Choose select's features:</legend>
+        <div v-for="(val, key) in selectFeatures" :key="key">
+          <input type="checkbox" :id="key" name="key" value="key" v-model="selectFeatures[key]" />
+          <label :for="key">{{ key }}</label>
+        </div>
+      </fieldset>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 interface ColumnProps {
   dataIndex?: string;
   title: string;
@@ -297,21 +330,38 @@ const columnsFixed: Array<ColumnProps> = [
   { title: 'Column 7', dataIndex: 'address', key: '7' },
   { title: 'Column 8', dataIndex: 'address', key: '8', fixed: 'right' },
 ];
+const selectSize = ref('default');
+const selectFeatures = reactive({
+  error: false,
+  positive: false,
+  disabled: false,
+  readonly: false,
+  clearable: false,
+  loading: false,
+  autoFocus: true,
+  searchable: true,
+});
+const selectTypes = ['text', 'search'];
+const selectType = ref('text');
+const selectVal = ref('');
 </script>
 <style scoped>
 .title {
   margin: 0.5rem 0;
 }
+
 .btn-demo * {
   margin-right: 10px;
   margin-bottom: 5px;
 }
+
 .notification-demo {
   width: 50%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 .list-demo,
 .table-demo {
   width: 50%;
