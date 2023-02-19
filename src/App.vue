@@ -130,6 +130,24 @@
       </v-breadcrumbs>
     </div>
 
+    <div class="title">Upload:</div>
+    <div class="notification-demo">
+      <span>Small with size limited under 100kb</span>
+      <v-upload size="small" maxSize="819200"></v-upload>
+      <span>Basic </span>
+      <v-upload vstyle="basic"></v-upload>
+      <span>Large </span>
+      <v-upload size="large"></v-upload>
+      <span>Important </span>
+      <v-upload vstyle="important"></v-upload>
+      <span>Positive </span>
+      <v-upload vstyle="positive"></v-upload>
+      <span>Multiple </span>
+      <v-upload multiple="true"></v-upload>
+      <span>Disabled </span>
+      <v-upload disabled="true"></v-upload>
+    </div>
+
     <div class="title">List：</div>
     <div class="list-demo">
       <span>Default Size || Add border</span>
