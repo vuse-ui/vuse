@@ -93,15 +93,13 @@
       th:nth-last-child(2) {
         border-right: none;
       }
+      .v-table-cell-scrollbar {
+        position: sticky;
+        right: 0;
+      }
     }
     .v-table-body {
       overflow-y: auto;
     }
   }
-  // &-fixed-column {
-  //   .v-table-container {
-  //     border-left: 1px solid #f0f0f0;
-  //     border-right: 1px solid #f0f0f0;
-  //   }
-  // }
 }

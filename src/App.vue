@@ -206,7 +206,7 @@
         <template #footer>Footer</template>
       </v-table>
       <span>Fixed column</span>
-      <v-table :scrollWidth="1200" bordered :dataSource="dataSource" :columns="columnsFixed"> </v-table>
+      <v-table height="300px" :scrollWidth="1200" bordered :dataSource="dataSource" :columns="columnsFixed"> </v-table>
     </div>
   </div>
 </template>
@@ -259,6 +259,24 @@ const dataSource = [
   },
   {
     key: '2',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    key: '3',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    key: '4',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    key: '5',
     name: '胡彦祖',
     age: 42,
     address: '西湖区湖底公园1号',

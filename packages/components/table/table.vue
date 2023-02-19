@@ -4,8 +4,8 @@
       <slot name="header"></slot>
     </div>
     <div class="v-table-container">
-      <div v-if="height" class="v-table-thead">
-        <table>
+      <div v-if="height" class="v-table-thead" ref="tableTheadContent">
+        <table :style="{ width: typeof scrollWidth === 'number' ? scrollWidth + 'px' : scrollWidth, minWidth: '100%' }">
           <colgroup>
             <col
               v-for="(col, i) in columns"
@@ -16,7 +16,12 @@
           </colgroup>
           <thead>
             <tr>
-              <th v-for="(col, i) in columns" :key="(col.key || col.dataIndex) + i">
+              <th
+                v-for="(col, i) in columns"
+                :key="(col.key || col.dataIndex) + i"
+                :style="stickyStyleObject(col.fixed, scrollbarWidth)"
+                :class="{ sticky: col.fixed }"
+              >
                 <slot name="headerCell" :column="col">
                   {{ col.title }}
                 </slot>
@@ -31,8 +36,9 @@
         class="v-table-body"
         :style="{ maxHeight: typeof height === 'number' ? height + 'px' : height }"
         ref="tableBodyContainer"
+        @scroll="scrollEvent($event)"
       >
-        <table ref="tableBodyContent">
+        <table :style="{ width: typeof scrollWidth === 'number' ? scrollWidth + 'px' : scrollWidth, minWidth: '100%' }">
           <colgroup>
             <col
               v-for="(col, i) in columns"
@@ -42,7 +48,12 @@
           </colgroup>
           <tbody>
             <tr v-for="(data, index) in dataSource" :key="(data as object).toString() + index">
-              <td v-for="(col, i) in columns" :key="(col.key || col.dataIndex) + i + index">
+              <td
+                v-for="(col, i) in columns"
+                :key="(col.key || col.dataIndex) + i + index"
+                :style="stickyStyleObject(col.fixed)"
+                :class="{ sticky: col.fixed }"
+              >
                 <slot name="bodyCell" :column="col" :text="(data as any)[col.dataIndex]" :record="data">
                   {{ (data as any)[col.dataIndex] }}
                 </slot>
@@ -51,6 +62,7 @@
           </tbody>
         </table>
       </div>
+
       <div
         v-if="!height"
         class="v-table-content"
@@ -111,14 +123,24 @@ const slotHeader = !!useSlots().header;
 const slotFooter = !!useSlots().footer;
 
 const tableBodyContainer = ref<null | HTMLElement>(null);
-const tableBodyContent = ref<null | HTMLElement>(null);
+const tableTheadContent = ref<null | HTMLElement>(null);
 const scrollbarWidth = ref<number>(0);
 const fixedColumn = ref<boolean>(false);
-watch([tableBodyContainer, tableBodyContent], ([container, content]) => {
-  if (container && content) {
-    scrollbarWidth.value = container.offsetWidth - content.offsetWidth;
+const scrollLeft = ref<number>(0);
+
+watch(tableBodyContainer, (next, prev) => {
+  if (next) {
+    scrollbarWidth.value = next.offsetWidth - next.clientWidth;
   }
 });
+
+const scrollEvent = (e: Event) => {
+  const left = (e.target as HTMLElement).scrollLeft;
+  if (tableTheadContent.value && scrollLeft.value !== left) {
+    tableTheadContent.value.scrollTo({ left: (e.target as HTMLElement).scrollLeft });
+    scrollLeft.value = left;
+  }
+};
 
 const props = defineProps(tableProps);
 const classList = computed(() => {
@@ -132,7 +154,7 @@ const classList = computed(() => {
   ];
 });
 
-const stickyStyleObject = (fixed?: boolean | 'left' | 'right') => {
+const stickyStyleObject = (fixed: boolean | 'left' | 'right' | undefined, distance?: number) => {
   if (!fixed) {
     return;
   }
@@ -141,7 +163,7 @@ const stickyStyleObject = (fixed?: boolean | 'left' | 'right') => {
     fixed = 'left';
   }
   return {
-    [`${fixed}`]: 0,
+    [`${fixed}`]: fixed === 'right' && distance ? distance + 'px' : 0,
   };
 };
 </script>
