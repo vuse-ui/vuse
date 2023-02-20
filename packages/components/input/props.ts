@@ -25,7 +25,6 @@ export const inputProps = {
   },
   modelValue: {
     type: String,
-    default: '',
   },
   placeholder: {
     type: String,
@@ -42,6 +41,9 @@ export const inputProps = {
   readonly: {
     type: Boolean,
     default: false,
+  },
+  value: {
+    type: String,
   },
 };
 export const Emits = ['update:modelValue', 'focus', 'blur', 'change', 'input', 'clear'];

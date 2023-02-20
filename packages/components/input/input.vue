@@ -53,7 +53,8 @@ const classList = computed(() => {
 const inputValue = ref('');
 
 watchEffect(() => {
-  inputValue.value = props.modelValue;
+  const { modelValue, value } = props;
+  inputValue.value = modelValue ?? value ?? '';
 });
 
 const handleInput = (e: Event) => {

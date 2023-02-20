@@ -34,9 +34,6 @@ $font-size: (
   &:has(.v-input-icon) {
     padding-right: 14px;
   }
-  &-icon {
-    z-index: 999;
-  }
   & > input {
     background: transparent;
     box-sizing: border-box;
