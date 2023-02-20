@@ -20,9 +20,11 @@ demo-preview=./animateHover.vue
     color: inherit;
     text-decoration-style: inherit;
     transition: inherit;
-    transition-duration: 500ms;
     &:hover {
         color: rgb(84, 84, 84);
     }
+}
+.vp-doc a.v-link.v-link-animateUnderline  {
+ transition-duration: 500ms;
 }
 </style>
