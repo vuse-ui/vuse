@@ -15,8 +15,8 @@
     margin: 0;
     .sticky {
       position: sticky;
-      border: 1px solid #ededed;
       z-index: 2;
+      display: block;
     }
     td {
       background-color: #ffffff;
@@ -29,8 +29,12 @@
     background-color: #fafafa;
   }
 
-  table tr {
+  table th,
+  table td {
     border-bottom: 1px solid #f0f0f0;
+  }
+  table tbody tr:last-child td {
+    border-bottom: none;
   }
   table thead tr th,
   table tbody tr td,
@@ -48,14 +52,15 @@
     table {
       border: 1px solid #ededed;
     }
-    .v-table-thead {
-      thead tr {
-        border-bottom: none;
-      }
-    }
+    // .v-table-thead {
+    //   thead tr {
+    //     border-bottom: none;
+    //   }
+    // }
     .v-table-body {
       table {
         border-top: none;
+        border-bottom: none;
       }
       border-bottom: 1px solid #ededed;
     }
@@ -74,7 +79,12 @@
   &-bordered > &-footer {
     border-top: none;
   }
-
+  &-bordered.v-table-fixed-column {
+    .v-table-container .sticky {
+      border-left: 1px solid #f0f0f0;
+      border-right: 1px solid #f0f0f0;
+    }
+  }
   &-fixed-header {
     table {
       table-layout: fixed;
@@ -83,6 +93,10 @@
       overflow: hidden;
       th:nth-last-child(2) {
         border-right: none;
+      }
+      .v-table-cell-scrollbar {
+        position: sticky;
+        right: 0;
       }
     }
     .v-table-body {

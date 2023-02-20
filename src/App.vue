@@ -184,9 +184,12 @@
         <template #footer>Footer</template>
       </v-table>
       <span>Fixed meter head</span>
-      <v-table height="70px" bordered :dataSource="dataSource" :columns="columns"> </v-table>
+      <v-table height="70px" bordered :dataSource="dataSource" :columns="columns">
+        <template #header>Header</template>
+        <template #footer>Footer</template>
+      </v-table>
       <span>Fixed column</span>
-      <v-table :scrollWidth="1200" bordered :dataSource="dataSource" :columns="columnsFixed"> </v-table>
+      <v-table height="300px" :scrollWidth="1200" bordered :dataSource="dataSource" :columns="columnsFixed"> </v-table>
     </div>
     <div class="title">Select:</div>
     <div class="notification-demo">
@@ -272,6 +275,24 @@ const dataSource = [
   },
   {
     key: '2',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    key: '3',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    key: '4',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园1号',
+  },
+  {
+    key: '5',
     name: '胡彦祖',
     age: 42,
     address: '西湖区湖底公园1号',
