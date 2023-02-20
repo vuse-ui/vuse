@@ -29,7 +29,7 @@ export default defineConfig({
           { text: 'Button', link: '/components/button/' },
           { text: 'Icon', link: '/components/icon/' },
           { text: 'Input', link: '/components/input/' },
-          { text: 'Notification' },
+          { text: 'Notification', link: '/components/notification/' },
           { text: 'Textarea', link: '/components/textarea/' },
           { text: 'List', link: '/components/list/' },
           { text: 'Table', link: '/components/table/' },
