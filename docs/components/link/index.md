@@ -15,7 +15,7 @@ demo-preview=./animateHover.vue
 :::
 
 <style lang='scss'>
-.vp-doc a {
+.vp-doc a.v-link {
     font-weight: inherit;
     color: inherit;
     text-decoration-style: inherit;
