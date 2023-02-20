@@ -18,26 +18,26 @@ demo-preview=./type.vue
 
 ## Event
 ### Input
-:::preview Event || Input, Params: current inputs val
+:::preview Event || Params: current inputs val
 demo-preview=./onInput.vue
 :::
 ### Change
-:::preview Event || Change, Params: current inputs val
+:::preview Event || Params: current inputs val
 demo-preview=./onChange.vue
 :::
 ### Blur
-:::preview Event || Blur, Params: MouseEvent
+:::preview Event || Params: MouseEvent
 demo-preview=./onBlur.vue
 :::
 ### Focus
-:::preview Event || Focus, Params: MouseEvent
+:::preview Event || Params: MouseEvent
 demo-preview=./onFocus.vue
 :::
 ### Clear
-:::preview Event || Clear, Params: null
+:::preview Event || Params: null
 demo-preview=./onClear.vue
 :::
 ### V-Model
-:::preview Event || V-Model, Params: current inputs val
+:::preview Event || Params: current inputs val
 demo-preview=./onUpdate.vue
 :::
