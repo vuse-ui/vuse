@@ -342,7 +342,7 @@ const selectFeatures = reactive({
   readonly: false,
   clearable: false,
   loading: false,
-  autoFocus: false,
+  autoFocus: true,
   searchable: false,
 });
 const selectTypes = ['text', 'search'];

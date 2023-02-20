@@ -31,7 +31,7 @@
     />
     <span v-if="loading"></span>
     <v-icon
-      v-if="type == 'text'"
+      v-if="type == 'select'"
       class="v-select-down"
       name="triangle-down"
       title="open"
@@ -39,7 +39,7 @@
       @click="handleOpen"
     />
     <div class="v-select-menu">
-      <ul>
+      <ul v-show="selectOptions.length">
         <li
           v-for="option in selectOptions"
           :key="option"
@@ -49,17 +49,19 @@
           {{ option }}
         </li>
       </ul>
+      <p v-show="!selectOptions.length">No results</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts" name="VSelect">
 import './select.scss';
-import { computed, ref, watchEffect, onMounted } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import { Props, Emits } from './props';
 
 const props = defineProps(Props);
 const emits = defineEmits(Emits);
+
 const inputEl = ref<HTMLInputElement>();
 const iconSizeMap: { [n: string]: number } = {
   mini: 14,
@@ -83,9 +85,9 @@ const classList = computed(() => {
 
 // inputValue 是为了在没有绑定 v-model 属性的情况下依然能 handleClear 清空文本框
 const inputValue = ref();
-
 watchEffect(() => {
-  inputValue.value = props.modelValue;
+  const { modelValue, value } = props;
+  inputValue.value = modelValue ?? value ?? '';
 });
 const handleInput = (e: Event) => {
   const val = (e.target as HTMLInputElement).value;
@@ -117,11 +119,9 @@ const handleOpen = () => {
   inputEl.value?.focus();
 };
 // if autoFocus is True
-Props.autoFocus &&
-  onMounted(() => {
-    inputEl?.value?.focus();
-  });
-
+watchEffect(() => {
+  props.autoFocus && inputEl?.value?.focus();
+});
 const selectOptions = computed(() =>
   props.searchable && inputValue.value
     ? props.options.filter(option => option.includes(inputValue.value))

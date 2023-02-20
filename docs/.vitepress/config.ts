@@ -30,6 +30,7 @@ export default defineConfig({
           { text: 'Icon', link: '/components/icon/' },
           { text: 'Link', link: '/components/link/' },
           { text: 'Input', link: '/components/input/' },
+          { text: 'Select', link: '/components/select/' },
           { text: 'Notification', link: '/components/notification/' },
           { text: 'Textarea', link: '/components/textarea/' },
           { text: 'List', link: '/components/list/' },
