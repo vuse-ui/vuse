@@ -1,5 +1,5 @@
 # Input
-A generic component used to start an instant operation
+An input enables a person to type in text information.
 
 ## Size
 :::preview Size || Mini, Compact, Default, Large
