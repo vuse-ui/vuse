@@ -1,5 +1,5 @@
 <template>
-  <v-input size="default" type="text" value="text" @clear="num++" clearable />
+  <v-select @clear="num++" clearable />
   <p>Clear Times: {{ num }}</p>
 </template>
 <script setup>

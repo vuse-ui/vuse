@@ -1,5 +1,5 @@
 <template>
-  <v-input size="default" type="text" value="text" @focus="num++" />
+  <v-select @focus="num++" />
   <p>Focus Times: {{ num }}</p>
 </template>
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <v-input size="default" type="text" value="text" @blur="num++" />
+  <v-select @blur="num++" />
   <p>Blur Times: {{ num }}</p>
 </template>
 <script setup>

@@ -20,7 +20,10 @@ export const Props = {
     validator(value: string) {
       return type.includes(value);
     },
-    default: 'text',
+    default: 'select',
+  },
+  value: {
+    type: String,
   },
   size: {
     type: String,
@@ -39,7 +42,6 @@ export const Props = {
   },
   modelValue: {
     type: String,
-    default: '',
   },
   placeholder: {
     type: String,

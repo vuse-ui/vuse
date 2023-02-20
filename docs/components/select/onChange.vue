@@ -1,8 +1,9 @@
 <template>
-  <v-input size="default" type="text" value="text" @change="num++" />
-  <p>Change Times: {{ num }}</p>
+  <v-select @change="val => (value = val)" :options="options" />
+  <p>value: {{ value }}</p>
 </template>
 <script setup>
 import { ref } from 'vue';
-const num = ref(0);
+const options = ['mini', 'compact', 'default', 'large'];
+const value = ref('');
 </script>

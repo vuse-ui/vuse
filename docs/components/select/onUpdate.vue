@@ -1,5 +1,5 @@
 <template>
-  <v-input size="default" type="text" v-model="value" />
+  <v-select v-model="value" />
   <p>v-model: {{ value }}</p>
 </template>
 <script setup>
