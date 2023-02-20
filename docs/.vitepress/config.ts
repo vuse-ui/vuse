@@ -27,10 +27,10 @@ export default defineConfig({
         items: [
           { text: 'Avatar', link: '/components/avatar/' },
           { text: 'Button', link: '/components/button/' },
-          { text: 'Icon' },
+          { text: 'Icon', link: '/components/icon/' },
           { text: 'Input', link: '/components/input/' },
           { text: 'Select', link: '/components/select/' },
-          { text: 'Notification' },
+          { text: 'Notification', link: '/components/notification/' },
           { text: 'Textarea', link: '/components/textarea/' },
           { text: 'List', link: '/components/list/' },
           { text: 'Table', link: '/components/table/' },
