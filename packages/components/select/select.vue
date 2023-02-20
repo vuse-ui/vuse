@@ -55,7 +55,7 @@
 
 <script setup lang="ts" name="VSelect">
 import './select.scss';
-import { computed, ref, watchEffect, onMounted } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import { Props, Emits } from './props';
 
 const props = defineProps(Props);
@@ -117,11 +117,9 @@ const handleOpen = () => {
   inputEl.value?.focus();
 };
 // if autoFocus is True
-Props.autoFocus &&
-  onMounted(() => {
-    inputEl?.value?.focus();
-  });
-
+watchEffect(() => {
+  props.autoFocus && inputEl?.value?.focus();
+});
 const selectOptions = computed(() =>
   props.searchable && inputValue.value
     ? props.options.filter(option => option.includes(inputValue.value))

@@ -59,7 +59,7 @@ export const Props = {
   },
   options: {
     type: Array<string>,
-    default: ['mini', 'compact', 'default', 'large'],
+    default: [],
   },
   loading: {
     type: Boolean,
