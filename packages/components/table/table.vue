@@ -128,7 +128,7 @@ const scrollbarWidth = ref<number>(0);
 const fixedColumn = ref<boolean>(false);
 const scrollLeft = ref<number>(0);
 
-watch(tableBodyContainer, (next, prev) => {
+watch(tableBodyContainer, next => {
   if (next) {
     scrollbarWidth.value = next.offsetWidth - next.clientWidth;
   }
