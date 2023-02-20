@@ -1,5 +1,7 @@
 # Icon
 
+Vuse provides a set of common icons.
+
 ## Basic Usage
 
 ```vue

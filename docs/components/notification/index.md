@@ -1,5 +1,7 @@
 # Notification
 
+Displays important alert messages.
+
 ## Kind
 
 :::preview Kind || Support info, positive, warning, negative categories.
