@@ -29,6 +29,7 @@ export default defineConfig({
           { text: 'Button', link: '/components/button/' },
           { text: 'Icon', link: '/components/icon/' },
           { text: 'Link', link: '/components/link/' },
+          { text: 'Breadcrumbs', link: '/components/breadcrumbs/' },
           { text: 'Input', link: '/components/input/' },
           { text: 'Select', link: '/components/select/' },
           { text: 'Notification', link: '/components/notification/' },
