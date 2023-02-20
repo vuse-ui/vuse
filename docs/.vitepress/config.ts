@@ -28,6 +28,7 @@ export default defineConfig({
           { text: 'Avatar', link: '/components/avatar/' },
           { text: 'Button', link: '/components/button/' },
           { text: 'Icon', link: '/components/icon/' },
+          { text: 'Link', link: '/components/link/' },
           { text: 'Input', link: '/components/input/' },
           { text: 'Notification', link: '/components/notification/' },
           { text: 'Textarea', link: '/components/textarea/' },
