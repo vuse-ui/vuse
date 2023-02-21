@@ -1,8 +1,9 @@
+import path from 'path';
+
 import { defineConfig } from 'vitepress';
 import vueSetupExtend from 'vite-plugin-vue-setup-extend';
 import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
-import path from 'path';
 
 export default defineConfig({
   title: 'Vuse-UI',
@@ -55,7 +56,7 @@ export default defineConfig({
     plugins: [
       vueSetupExtend(),
       createSvgIconsPlugin({
-        iconDirs: [path.resolve(process.cwd(), '../node_modules/@vuse-ui/components/icon/svg')],
+        iconDirs: [path.resolve(process.cwd(), 'node_modules/@vuse-ui/components/icon/svg')],
         symbolId: '[name]',
       }),
     ],
