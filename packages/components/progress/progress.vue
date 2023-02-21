@@ -20,7 +20,7 @@
 <script lang="ts" setup name="v-progress">
 import './progress.scss';
 import { progressProps } from './props';
-import { ref, defineProps, computed, nextTick, watchEffect } from 'vue';
+import { ref, computed, nextTick, watchEffect } from 'vue';
 
 //接受传参
 const props = defineProps(progressProps);
