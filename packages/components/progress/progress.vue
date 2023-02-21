@@ -30,9 +30,9 @@ const showValue = ref(props.value);
 const container = ref<null | HTMLElement>(null);
 //定义动画(不优雅，后期修改)
 const simulateAnimation = () => {
-  const stepnum = stepValid();
+  const stepNum = stepValid();
   showValue.value = Number(showValue.value);
-  if (stepnum === 1) {
+  if (stepNum === 1) {
     nextTick(() => {
       if (container.value) {
         (container.value.children[0].children[0] as HTMLElement).style.transform = `translateX(-${
@@ -47,15 +47,15 @@ const simulateAnimation = () => {
     });
     return;
   }
-  const startnum = Math.floor((showValue.value / 100) * stepnum);
-  for (let i = 0; i < startnum; i++) {
+  const startNum = Math.floor((showValue.value / 100) * stepNum);
+  for (let i = 0; i < startNum; i++) {
     nextTick(() => {
       if (container.value) {
         (container.value.children[i].children[0] as HTMLElement).style.transform = 'translateX(0)';
       }
     });
   }
-  for (let j = startnum; j < startnum + 1 && j < stepnum; j++) {
+  for (let j = startNum; j < startNum + 1 && j < stepNum; j++) {
     nextTick(() => {
       if (container.value) {
         (container.value.children[j].children[0] as HTMLElement).style.animationName = 'progressing';

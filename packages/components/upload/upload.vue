@@ -1,5 +1,5 @@
 <template>
-  <div :class="classList" :vstyle="props.vstyle" :size="props.size" ref="root" :error="props.error">
+  <div :class="classList" :uploadStyle="props.uploadStyle" :size="props.size" ref="root" :error="props.error">
     <div v-show="!isUpload" class="upload">
       <p>{{ msg }}</p>
       <label :for="fileSymbol" :disabled="props.disabled">Browse files</label>

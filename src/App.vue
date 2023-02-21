@@ -48,10 +48,10 @@
 
     <div class="title">Icons:</div>
     <div>
-      <v-icon name="alert" title="Alert" size="16" color="red" />
-      <v-icon name="alert" title="Alert" size="32" color="green" />
-      <v-icon name="alert" title="Alert" size="48" color="black" />
-      <v-icon name="alert" title="Alert" size="64" color="blue" />
+      <v-icon name="alert" title="Alert" :size="16" color="red" />
+      <v-icon name="alert" title="Alert" :size="32" color="green" />
+      <v-icon name="alert" title="Alert" :size="48" color="black" />
+      <v-icon name="alert" title="Alert" :size="64" color="blue" />
       <v-icon name="arrow-down" title="Arrow down" />
     </div>
 
@@ -116,19 +116,19 @@
     <div class="title">Upload:</div>
     <div class="notification-demo">
       <span>Small with size limited under 100kb</span>
-      <v-upload size="small" maxSize="819200"></v-upload>
+      <v-upload size="small" :maxSize="819200"></v-upload>
       <span>Basic </span>
-      <v-upload vstyle="basic"></v-upload>
+      <v-upload uploadStyle="basic"></v-upload>
       <span>Large </span>
       <v-upload size="large"></v-upload>
       <span>Important </span>
-      <v-upload vstyle="important"></v-upload>
+      <v-upload uploadStyle="important"></v-upload>
       <span>Positive </span>
-      <v-upload vstyle="positive"></v-upload>
+      <v-upload uploadStyle="positive"></v-upload>
       <span>Multiple </span>
-      <v-upload multiple="true"></v-upload>
+      <v-upload :multiple="true"></v-upload>
       <span>Disabled </span>
-      <v-upload disabled="true"></v-upload>
+      <v-upload :disabled="true"></v-upload>
     </div>
 
     <div class="title">List：</div>
@@ -145,10 +145,10 @@
       </v-list>
       <span>Large Size || Custom header or footer</span>
       <v-list size="large">
-        <template #header>header <v-icon name="alert" title="Alert" size="16" color="red" /> </template>
+        <template #header>header <v-icon name="alert" title="Alert" :size="16" color="red" /> </template>
         <v-list-item>list item 1</v-list-item>
         <v-list-item>list item 2</v-list-item>
-        <template #footer>footer <v-icon name="alert" title="Alert" size="16" color="green" /></template>
+        <template #footer>footer <v-icon name="alert" title="Alert" :size="16" color="green" /></template>
       </v-list>
     </div>
 
@@ -240,10 +240,10 @@
       <span>label</span>
       <v-progress label></v-progress>
       <span>value</span>
-      <v-progress value="60" label></v-progress>
+      <v-progress :value="60" label></v-progress>
       <span>step</span>
       <v-progress step="5" label></v-progress>
-      <v-progress step="20" label></v-progress>
+      <v-progress step="10" label></v-progress>
     </div>
   </div>
 </template>
@@ -366,8 +366,8 @@ const selectFeatures = reactive({
   autoFocus: true,
   searchable: false,
 });
-const selectTypes = ['text', 'search'];
-const selectType = ref('text');
+const selectTypes = ['select', 'search'];
+const selectType = ref('select');
 const selectVal = ref('');
 </script>
 <style scoped>

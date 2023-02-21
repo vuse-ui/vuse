@@ -1,7 +1,7 @@
 export const style = ['basic', 'important', 'positive'];
 export const size = ['small', 'normal', 'large'];
 export const uploadProps = {
-  vstyle: {
+  uploadStyle: {
     type: String,
     validator(value: string) {
       return style.includes(value);

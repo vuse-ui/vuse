@@ -42,7 +42,7 @@ $color-positive: rgb(224, 240, 232);
       }
     }
   }
-  &[vstyle='important'] {
+  &[uploadStyle='important'] {
     color: darken($color-warning, 55%);
     & > div {
       background: $color-warning;
@@ -56,7 +56,7 @@ $color-positive: rgb(224, 240, 232);
       }
     }
   }
-  &[vstyle='positive'] {
+  &[uploadStyle='positive'] {
     color: darken($color-positive, 55%);
     & > div {
       background: $color-positive;
