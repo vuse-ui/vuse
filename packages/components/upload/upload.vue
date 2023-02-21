@@ -24,7 +24,7 @@
   />
 </template>
 
-<script lang="ts" setup name="v-upload">
+<script lang="ts" setup name="VUpload">
 import './upload.scss';
 import { ref, computed } from 'vue';
 import { uploadProps } from './props';
