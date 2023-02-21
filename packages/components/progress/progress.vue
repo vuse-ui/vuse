@@ -27,14 +27,18 @@ const props = defineProps(progressProps);
 const showError = ref('');
 const showLabel = ref(props.label);
 const showValue = ref(props.value);
-const container = ref();
+const container = ref<null | HTMLElement>(null);
 //定义动画(不优雅，后期修改)
 const simulateAnimation = () => {
   const stepnum = stepValid();
   showValue.value = Number(showValue.value);
   if (stepnum === 1) {
     nextTick(() => {
-      container.value.children[0].children[0].style.transform = `translateX(-${100 - showValue.value}%)`;
+      if (container.value) {
+        (container.value.children[0].children[0] as HTMLElement).style.transform = `translateX(-${
+          100 - showValue.value
+        }%)`;
+      }
       requestAnimationFrame(() => {
         if (showValue.value >= 100) showValue.value = 50;
         showValue.value += 0.3;
@@ -45,12 +49,16 @@ const simulateAnimation = () => {
   const startnum = Math.floor((showValue.value / 100) * stepnum);
   for (let i = 0; i < startnum; i++) {
     nextTick(() => {
-      container.value.children[i].children[0].style.transform = 'translateX(0)';
+      if (container.value) {
+        (container.value.children[i].children[0] as HTMLElement).style.transform = 'translateX(0)';
+      }
     });
   }
   for (let j = startnum; j < startnum + 1 && j < stepnum; j++) {
     nextTick(() => {
-      container.value.children[j].children[0].style.animationName = 'progressing';
+      if (container.value) {
+        (container.value.children[j].children[0] as HTMLElement).style.animationName = 'progressing';
+      }
     });
   }
 };
