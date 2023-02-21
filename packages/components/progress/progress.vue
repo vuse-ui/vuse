@@ -39,10 +39,11 @@ const simulateAnimation = () => {
           100 - showValue.value
         }%)`;
       }
-      requestAnimationFrame(() => {
-        if (showValue.value >= 100) showValue.value = 50;
+      const time = setInterval(() => {
+        if (time) clearInterval(time);
+        if (showValue.value >= 100) showValue.value = Number(props.value);
         showValue.value += 0.3;
-      });
+      }, 20);
     });
     return;
   }
