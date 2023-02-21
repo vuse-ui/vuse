@@ -2,15 +2,13 @@
 
 ## Size
 
-:::preview Size || Small, Normol, Large.
+:::preview Size || Small, Normal (default), Large.
 demo-preview=./size.vue
 :::
 
-> If you don't set this props, it will gives 'normol'.
-
 ## Style
 
-:::preview Style || Basic, Important
+:::preview Style || Basic (default), Important
 demo-preview=./uploadStyle.vue
 :::
 
@@ -31,6 +29,9 @@ demo-preview=./accept.vue
 :::preview FileSize || filesize
 demo-preview=./filesize.vue
 :::
+> First one limits less than 100kb.
+>
+> Second limits over than 100kb.
 
 ## Disabled
 
