@@ -29,7 +29,7 @@ demo-preview=./accept.vue
 ## FileSize
 
 :::preview FileSize || filesize
-demo-preview=./fileSize.vue
+demo-preview=./filesize.vue
 :::
 
 ## Disabled
