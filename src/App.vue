@@ -224,6 +224,27 @@
         </div>
       </fieldset>
     </div>
+
+    <div class="title">Upload:</div>
+    <div class="notification-demo">
+      <span>Size-small</span>
+      <v-progress size="small"></v-progress>
+      <span>Size-normal</span>
+      <v-progress size="normal"></v-progress>
+      <span>Size-large</span>
+      <v-progress size="large"></v-progress>
+      <span>theme-important</span>
+      <v-progress theme="important"></v-progress>
+      <span>theme-positive</span>
+      <v-progress theme="positive"></v-progress>
+      <span>label</span>
+      <v-progress label></v-progress>
+      <span>value</span>
+      <v-progress value="60" label></v-progress>
+      <span>step</span>
+      <v-progress step="5" label></v-progress>
+      <v-progress step="20" label></v-progress>
+    </div>
   </div>
 </template>
 

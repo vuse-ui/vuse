@@ -36,6 +36,7 @@ export default defineConfig({
           { text: 'Textarea', link: '/components/textarea/' },
           { text: 'List', link: '/components/list/' },
           { text: 'Table', link: '/components/table/' },
+          { text: 'Progress', link: '/components/progress/' },
         ],
       },
     ],

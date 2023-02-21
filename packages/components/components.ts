@@ -11,6 +11,7 @@ import List from './list';
 import ListItem from './list/item';
 import Table from './table';
 import Select from './select';
+import Progress from './progress';
 export default [
   Avatar,
   Breadcrumbs,
@@ -25,4 +26,5 @@ export default [
   ListItem,
   Table,
   Select,
+  Progress,
 ];
