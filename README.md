@@ -12,19 +12,23 @@ English | [简体中文](./README-zh_CN.md)
 
 ## Getting Started
 
-You can vist our docs [here (developing...)](https://github.com/vuse-ui/vuse)
+You can vist our docs [here (developing...)](https://vuse-ui.github.io/vuse/)
 
 ## Features
 
- - A set of high-quality Vue components out of box.
- - TypeScript friendly
+- A set of high-quality Vue components out of box.
+- TypeScript friendly
 
 ## Installation
 
 Available as npm package
 
 ```shell
-npm install waiting-for-developing
+# npm
+npm install @vuse-ui
+
+# pnpm
+pnpm add @vuse-ui
 ```
 
 ## License
