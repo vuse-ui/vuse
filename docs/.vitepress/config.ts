@@ -37,6 +37,7 @@ export default defineConfig({
           { text: 'List', link: '/components/list/' },
           { text: 'Table', link: '/components/table/' },
           { text: 'Progress', link: '/components/progress/' },
+          { text: 'Upload', link: '/components/upload/' },
         ],
       },
     ],
