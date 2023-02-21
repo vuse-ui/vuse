@@ -1,0 +1,71 @@
+@use '@vuse-ui/themes/src/mixins/mixins' as *;
+
+@keyframes progressing {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@include b(progress) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 25px auto;
+  &-small .container {
+    height: 4px;
+    display: flex;
+    gap: 5px;
+  }
+  &-normal .container {
+    height: 6px;
+    display: flex;
+    gap: 5px;
+  }
+  &-large .container {
+    height: 8px;
+    display: flex;
+    gap: 5px;
+  }
+
+  & .progress-bar {
+    width: 100%;
+    border-radius: 2px;
+    background-color: #ccc;
+    height: 100%;
+    overflow: hidden;
+    & .bar-animate {
+      background-color: blue;
+      border-radius: 2px;
+      width: 100%;
+      height: 100%;
+      transform: translateX(-110%);
+      animation-duration: 2s;
+      animation-timing-function: ease-out;
+      animation-iteration-count: infinite;
+    }
+    & .bar-animate-basic {
+      background-color: blue;
+    }
+    & .bar-animate-important {
+      background-color: red;
+    }
+    & .bar-animate-positive {
+      background-color: rgb(82, 206, 144);
+    }
+  }
+  & .label {
+    color: rgb(107, 107, 107);
+    font-size: 12px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  & .error-msg {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+}
