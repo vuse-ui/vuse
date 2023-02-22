@@ -1,5 +1,12 @@
 <template>
-  <div :class="classList" :uploadStyle="props.uploadStyle" :size="props.size" ref="root" :error="props.error">
+  <div
+    :class="classList"
+    :uploadStyle="props.uploadStyle"
+    :size="props.size"
+    ref="root"
+    :error="isError"
+    :success="isSuccess"
+  >
     <div v-show="!isUpload" class="upload">
       <p>{{ msg }}</p>
       <label :for="fileSymbol" :disabled="props.disabled">Browse files</label>
@@ -26,7 +33,7 @@
 
 <script lang="ts" setup name="VUpload">
 import './upload.scss';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { uploadProps } from './props';
 import { uuid } from 'vue-uuid';
 //接受传参
@@ -35,16 +42,10 @@ const props = defineProps(uploadProps);
 const isUpload = ref(false);
 //上传进度
 const Progress = ref(0);
+const isSuccess = ref(false);
+const isError = ref(false);
 //定义类名
-const classList = computed(() => {
-  return [
-    {
-      ['v-upload']: 'v-upload',
-      //后期加入自定义展示是否显示错误信息
-      ['v-error']: props.error,
-    },
-  ];
-});
+const classList = 'v-upload';
 //定义文件信息
 const msg = ref('Drop files here to upload...');
 //定义是否取消
@@ -72,7 +73,8 @@ const handlerChange = (e: Event): void => {
   //展示上传界面
   isUpload.value = true;
   //重制本来样式
-  root.value.attributes.error.value = 'false';
+  isError.value = false;
+  isSuccess.value = false;
   //定义延时上传文件
   let timer = setInterval(() => {
     if (isCancel.value) {
@@ -104,7 +106,9 @@ const handlerChange = (e: Event): void => {
         //超过规定文件大小展示样式
         file.value = null;
         msg.value = 'error: The file upload size beyond/below the limit';
-        root.value.attributes.error.value = 'true';
+        isError.value = true;
+      } else {
+        isSuccess.value = true;
       }
       isUpload.value = false;
     }

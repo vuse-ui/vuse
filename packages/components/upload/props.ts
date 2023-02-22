@@ -1,4 +1,4 @@
-export const style = ['basic', 'important', 'positive'];
+export const style = ['basic', 'important'];
 export const size = ['small', 'normal', 'large'];
 export const uploadProps = {
   uploadStyle: {
@@ -34,9 +34,5 @@ export const uploadProps = {
   minSize: {
     type: Number,
     default: 0,
-  },
-  error: {
-    type: Boolean,
-    default: false,
   },
 };

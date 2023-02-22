@@ -2,15 +2,13 @@
 
 ## Size
 
-:::preview Size || Small, Normol, Large.
+:::preview Size || Small, Normal (default), Large.
 demo-preview=./size.vue
 :::
 
-> If you don't set this props, it will gives 'normal'.
-
 ## Theme
 
-:::preview Theme || Basic, Important, Positive
+:::preview Theme || Basic (default), Important, Positive
 demo-preview=./theme.vue
 :::
 
@@ -27,11 +25,14 @@ demo-preview=./labelProgress.vue
 :::preview Step || step = 5 / step = 10
 demo-preview=./step.vue
 :::
+> If you set 'step' over 10 or below 1; it will give error message with red color and set 'step' as 10.
 
 ## Value
 
-:::preview Value || value = 60
+:::preview Value || value
 demo-preview=./value.vue
 :::
 
-> You can bind value to true progress to show the animation.
+> You can bind 'value' to the actual progress value to show the animation.
+>
+> Attention: the 'value' can only below 100.
