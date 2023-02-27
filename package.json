@@ -11,7 +11,8 @@
     "lint:eslint": "eslint .",
     "lint:style": "stylelint packages/themes/src/**/*.scss --fix --custom-syntax postcss-scss",
     "prepare": "husky install",
-    "lint:staged": "lint-staged"
+    "lint:staged": "lint-staged",
+    "test": "vitest"
   },
   "dependencies": {
     "@vuse-ui/components": "workspace:^1.0.0",
@@ -35,6 +36,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.9.0",
     "husky": "^8.0.3",
+    "jsdom": "^21.1.0",
     "lint-staged": "^13.1.0",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
