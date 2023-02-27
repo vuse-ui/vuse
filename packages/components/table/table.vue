@@ -114,7 +114,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="VTable">
+<script setup lang="ts" name="Table">
 import { computed, useSlots, ref, watch } from 'vue';
 import './table.scss';
 import { tableProps } from './props';

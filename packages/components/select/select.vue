@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="VSelect">
+<script setup lang="ts" name="Select">
 import './select.scss';
 import { computed, ref, watchEffect } from 'vue';
 import { Props, Emits } from './props';

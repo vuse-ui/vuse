@@ -3,7 +3,7 @@ import './breadcrumbs.scss';
 import { Icon } from '../icon';
 import { h, VNode } from 'vue';
 export default {
-  name: 'VBreadcrumbs',
+  name: 'Breadcrumbs',
   setup(_, { slots }) {
     const defaultNode = (slots.default && slots.default()) ?? [];
     const vnode: VNode[] = [];
@@ -19,4 +19,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>

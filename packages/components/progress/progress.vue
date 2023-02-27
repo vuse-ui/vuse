@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script lang="ts" setup name="VProgress">
+<script lang="ts" setup name="Progress">
 import './progress.scss';
 import { progressProps } from './props';
 import { ref, computed, nextTick, watch, onMounted } from 'vue';

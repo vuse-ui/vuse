@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="VList">
+<script setup lang="ts" name="List">
 import { computed, useSlots } from 'vue';
 
 import './list.scss';

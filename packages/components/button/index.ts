@@ -1,4 +1,5 @@
 import { App } from 'vue';
+import { VuseOptions } from '../utils/types';
 import Button from './button.vue';
 
 // https://cn.vuejs.org/guide/reusability/plugins.html#introduction
@@ -8,7 +9,8 @@ export default {
   title: 'Button 按钮',
   category: '通用',
   status: '100%',
-  install(app: App): void {
-    app.component(Button.name, Button);
+  install(app: App, options?: VuseOptions): void {
+    const componentPrefix = options?.componentPrefix ?? 'V';
+    app.component(componentPrefix + Button.name, Button);
   },
 };

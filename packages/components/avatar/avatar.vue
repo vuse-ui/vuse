@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="VAvatar">
+<script setup lang="ts" name="Avatar">
 import { computed, ref } from 'vue';
 
 import './avatar.scss';

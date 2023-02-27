@@ -13,7 +13,7 @@
   </Transition>
 </template>
 
-<script setup lang="ts" name="VNotification">
+<script setup lang="ts" name="Notification">
 import { computed, ref } from 'vue';
 import { Props, Emits } from './props';
 import './notification.scss';

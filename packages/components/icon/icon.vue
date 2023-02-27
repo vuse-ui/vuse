@@ -12,7 +12,7 @@
   </component>
 </template>
 
-<script setup lang="ts" name="VIcon">
+<script setup lang="ts" name="Icon">
 import { computed, CSSProperties } from 'vue';
 import { Props } from './props';
 

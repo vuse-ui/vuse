@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="VInput">
+<script setup lang="ts" name="Input">
 import './input.scss';
 import { computed, ref, watchEffect } from 'vue';
 import { inputProps, Emits } from './props';

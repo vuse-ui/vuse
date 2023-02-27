@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="VTextarea">
+<script setup lang="ts" name="Textarea">
 import { computed, ref, toRef } from 'vue';
 import { Props, Emits } from './props';
 import './textarea.scss';

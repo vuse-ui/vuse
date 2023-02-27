@@ -12,7 +12,7 @@
   </button>
 </template>
 
-<script setup lang="ts" name="VButton">
+<script setup lang="ts" name="Button">
 import { computed } from 'vue';
 
 import './button.scss';

@@ -31,7 +31,7 @@
   />
 </template>
 
-<script lang="ts" setup name="VUpload">
+<script lang="ts" setup name="Upload">
 import './upload.scss';
 import { ref } from 'vue';
 import { uploadProps } from './props';

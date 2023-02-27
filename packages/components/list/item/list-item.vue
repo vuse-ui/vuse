@@ -4,6 +4,6 @@
   </div>
 </template>
 
-<script setup lang="ts" name="VListItem">
+<script setup lang="ts" name="ListItem">
 import './list-item.scss';
 </script>

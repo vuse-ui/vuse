@@ -4,7 +4,7 @@
   </a>
 </template>
 
-<script setup lang="ts" name="VLink">
+<script setup lang="ts" name="Link">
 import './link.scss';
 import { computed } from 'vue';
 import { linkProps } from './props';
